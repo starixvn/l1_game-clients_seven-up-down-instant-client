@@ -2,7 +2,8 @@ import gc from "@sg/game-client-base";
 import { _decorator, CCFloat, Color, Node, UITransform, v3 } from "cc";
 import { LedLightTooltip } from "db://shared-components/game/led-light/scripts/components/led-light-tooltip";
 
-import { BetChoice } from "../coin-toss-choices";
+import { BetChoice } from "../seven-up-down-choices";
+import { findWinningChoice } from "../seven-up-down-helper";
 
 const { ccclass, property } = _decorator;
 
@@ -31,14 +32,9 @@ export class CustomLedLightTooltip extends LedLightTooltip {
     public setTooltipInfo(ledLightInfo: gc.RoundHistories.RoundHistory) {
         const roundIdText = `#${ledLightInfo.roundId}`;
         this.roundId.string = roundIdText;
-        const winChoice = this.findWinningChoice(ledLightInfo);
+        const winChoice = findWinningChoice(ledLightInfo);
         let name = gc.Translator.gameTranslate(`glossary_${winChoice}`);
-        const match = ledLightInfo?.["match"];
-        if (match && match[winChoice]) {
-            const teamWin = match[winChoice];
-            name = gc.Translator.gameTranslate(`glossary_${teamWin}`);
-        }
-
+       
         this.result.string = name.toUpperCase();
         this.result.color = new Color(ColorResult[winChoice]);
 
@@ -53,12 +49,6 @@ export class CustomLedLightTooltip extends LedLightTooltip {
 
         this.showTooltip();
     }
-
-    protected findWinningChoice(ledLightInfo: gc.RoundHistories.RoundHistory): string {
-        const choices = [BetChoice.Away, BetChoice.Home];
-        return choices.find((choice) => ledLightInfo.settlementResult[choice]) || "";
-    }
-
     public adjustBackgroundWidth(increment: number) {
         if (!this.background) {
             return;

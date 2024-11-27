@@ -149,8 +149,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 298.5,
-      "y": 0,
+      "x": 297.5,
+      "y": 1,
       "z": 0
     },
     "_lrot": {
@@ -191,7 +191,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 7,
-      "height": 21
+      "height": 24
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -257,7 +257,7 @@
     "_alignFlags": 32,
     "_target": null,
     "_left": 0,
-    "_right": 6.5,
+    "_right": 7.5,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,
@@ -465,7 +465,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 2,
+      "x": 1,
       "y": 0,
       "z": 0
     },
@@ -726,7 +726,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 610,
-      "height": 35
+      "height": 24
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -762,7 +762,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de@a07dc",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@2c974",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -844,7 +844,7 @@
       "__id__": 11
     },
     "ledLightItem": {
-      "__uuid__": "97eb2d61-d1f8-4c2a-ba1c-5cad95ab2c13",
+      "__uuid__": "eb061e5c-6255-4f82-91a4-342855735388",
       "__expectedType__": "cc.Prefab"
     },
     "tooltipPrefab": {

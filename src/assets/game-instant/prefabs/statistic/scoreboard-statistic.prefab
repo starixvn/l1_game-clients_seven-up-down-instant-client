@@ -206,7 +206,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de@98481",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@98481",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 1,
@@ -222,7 +222,7 @@
     "_isTrimmedMode": true,
     "_useGrayscale": false,
     "_atlas": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2",
       "__expectedType__": "cc.SpriteAtlas"
     },
     "_id": ""
@@ -1040,7 +1040,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de@f8df7",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@aced3",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 2,
@@ -1056,7 +1056,7 @@
     "_isTrimmedMode": true,
     "_useGrayscale": false,
     "_atlas": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2",
       "__expectedType__": "cc.SpriteAtlas"
     },
     "_id": ""
@@ -1580,7 +1580,7 @@
   {
     "__type__": "ScoreboardConverterProperty",
     "key": "keyOfA",
-    "value": "home"
+    "value": "up"
   },
   {
     "__type__": "ScoreboardConverterProperty",
@@ -1590,7 +1590,7 @@
   {
     "__type__": "ScoreboardConverterProperty",
     "key": "keyOfA",
-    "value": "away"
+    "value": "down"
   },
   {
     "__type__": "d7b60Kca8BEGqgWIhYvDlzD",

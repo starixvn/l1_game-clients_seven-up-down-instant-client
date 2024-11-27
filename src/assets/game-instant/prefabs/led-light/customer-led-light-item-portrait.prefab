@@ -38,7 +38,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 22
+      "__id__": 23
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -133,8 +133,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 34,
-      "height": 35
+      "width": 32,
+      "height": 32
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -170,12 +170,12 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de@0051b",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@c5d11",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
     "_fillType": 0,
-    "_sizeMode": 2,
+    "_sizeMode": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
       "x": 0,
@@ -229,7 +229,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 2,
+      "y": 0,
       "z": 0
     },
     "_lrot": {
@@ -270,7 +270,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 34,
-      "height": 35
+      "height": 34
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -306,7 +306,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "825869e5-4edf-4e09-99d7-f5985de43b6b@c5305",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@85b39",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -355,8 +355,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 30,
-      "height": 35
+      "width": 32,
+      "height": 32
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -412,6 +412,9 @@
       },
       {
         "__id__": 21
+      },
+      {
+        "__id__": 22
       }
     ],
     "_id": ""
@@ -422,17 +425,25 @@
   },
   {
     "__type__": "LedLightItemModel",
-    "choiceNames": "home",
+    "choiceNames": "up",
     "backgroundForChoice": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de@0051b",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@ad894",
       "__expectedType__": "cc.SpriteFrame"
     }
   },
   {
     "__type__": "LedLightItemModel",
-    "choiceNames": "away",
+    "choiceNames": "down",
     "backgroundForChoice": {
-      "__uuid__": "62dba303-8fb5-427b-bd8e-5cab8dbf20de@3799f",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@9eadd",
+      "__expectedType__": "cc.SpriteFrame"
+    }
+  },
+  {
+    "__type__": "LedLightItemModel",
+    "choiceNames": "seven",
+    "backgroundForChoice": {
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@c5d11",
       "__expectedType__": "cc.SpriteFrame"
     }
   },

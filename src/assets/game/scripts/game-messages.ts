@@ -1,3 +1,5 @@
+import gc from "@sg/game-client-base";
+import { ISevenUpDownResult } from "../../game-instant/scripts/seven-up-down-choices";
 export namespace GameServiceMessage {
     export class MatchConfig {
         home: string;
@@ -12,5 +14,11 @@ export namespace GameServiceMessage {
         roundId: number;
 
         static eventName = "roundHistory";
+    }
+
+    export class SevenUpDownGameConfigs {
+        multipliers: Array<number>;
+
+        static eventName = "gameConfigs";
     }
 }

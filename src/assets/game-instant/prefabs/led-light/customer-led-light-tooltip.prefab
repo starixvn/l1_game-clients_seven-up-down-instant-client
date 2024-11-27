@@ -187,8 +187,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 46,
-      "height": 37.8
+      "width": 45.99950261646929,
+      "height": 37.800000000000004
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -226,7 +226,7 @@
     "_string": "拜登",
     "_horizontalAlign": 2,
     "_verticalAlign": 1,
-    "_actualFontSize": 28.75,
+    "_actualFontSize": 27.730295566502463,
     "_fontSize": 23,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -326,8 +326,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 105.66650390625,
-      "height": 37.8
+      "width": 105.62904153732285,
+      "height": 37.79999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -365,7 +365,7 @@
     "_string": "#12345678",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 26.25,
+    "_actualFontSize": 25.318965517241377,
     "_fontSize": 21,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -619,6 +619,8 @@
       "__id__": 0
     },
     "fileId": "65ChDJTBBIRZFYjWjal5LX",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
