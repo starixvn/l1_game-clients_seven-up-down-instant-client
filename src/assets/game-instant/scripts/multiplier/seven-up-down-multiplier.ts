@@ -19,6 +19,7 @@ export default class SevenUpDownMultiplier extends ObserverComponent {
 
     @render(SevenUpDownGameConfigStore, (store) => store.multipliers, { fireImmediately: true })
     updateMultiplierConfigs(multipliers: Array<number>) {
+        console.log("updateMultiplierConfigs", multipliers);
         this.multipliersConfigs = multipliers;
     }
 

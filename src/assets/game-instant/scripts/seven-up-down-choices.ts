@@ -1,7 +1,7 @@
 export enum BetChoice {
     UP = "up",
     DOWN = "down",
-    SEVEN = "seven"
+    SEVEN = "7"
 }
 
 export interface ISevenUpDownSettlementResult {

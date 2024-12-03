@@ -1,8 +1,7 @@
-import { _decorator, sp, Component, UIOpacity, Vec3, SpriteFrame, Label, Node, Tween, SkeletalAnimation, SpriteAtlas } from "cc";
+import { _decorator, sp, Component, UIOpacity, Vec3, SpriteFrame, Label, Node, Tween, SpriteAtlas, Sprite } from "cc";
 import { AnimationUtils } from "../../../extensions/shared-components/assets/shared/utils";
 import { calcTotalPoints, determineWinningChoice, pauseSpineAnimation } from "./seven-up-down-helper";
 import { SevenUpDownDice } from "./seven-up-down-dice";
-import { ISevenUpDownResult } from "./seven-up-down-choices";
 import gc from "@sg/game-client-base";
 
 const { ccclass, property } = _decorator;
@@ -28,6 +27,9 @@ export class SevenUpDownResult extends Component {
 
     @property({ type: Label })
     lblResult: Label | null = null;
+
+    @property(Sprite)
+    resultBg: Sprite | null = null;
 
     private resultDiceFrames: IResultDiceFrames = { dice1: [], dice2: [] };
     private diceSpriteFrames: SpriteFrame[] = [];
@@ -64,7 +66,7 @@ export class SevenUpDownResult extends Component {
         return `s${position}-e${nextPosition}`;
     }
 
-    showResultNoAnim(result: ISevenUpDownResult, roundId: number) {
+    showResultNoAnim(result: gc.GameServiceMessage.TResult, roundId: number) {
         this.stopAllDiceAnimation();
         if (this.diceSkeleton) {
             pauseSpineAnimation(this.diceSkeleton.getComponent(sp.Skeleton), 1, this.getDiceAnimationName(roundId));
@@ -78,7 +80,7 @@ export class SevenUpDownResult extends Component {
 
     setResultTextVisibility(isShow: boolean) {
         if (!this.nodeResult) return;
-
+        this.resultBg.node.active = isShow;
         this.nodeResult.active = isShow;
 
         const uiOpacity = this.nodeResult.getComponent(UIOpacity) || this.nodeResult.addComponent(UIOpacity);
@@ -97,7 +99,7 @@ export class SevenUpDownResult extends Component {
             .to(0.3, { scale: new Vec3(1, 1, 1) }) // Scale back to normal
             .call(() => {
                 uiOpacity.opacity = 255;
-            }) 
+            })
             .start();
     }
 
@@ -117,7 +119,6 @@ export class SevenUpDownResult extends Component {
         this.resetResultDiceFrames();
         this.stopAllDiceAnimation();
         this.setResultDiceFrames(prevResult, result);
-
         if (this.diceSkeleton) {
             AnimationUtils.playSpine(
                 this.diceSkeleton.getComponent(sp.Skeleton),
@@ -126,7 +127,7 @@ export class SevenUpDownResult extends Component {
                 this.RESULT_DURATION
             );
         }
-
+       
         this.dicesComponent.forEach((dice, index) => {
             dice.runAnimation(this.resultDiceFrames[`dice${index + 1}`], this.RESULT_DURATION);
         });

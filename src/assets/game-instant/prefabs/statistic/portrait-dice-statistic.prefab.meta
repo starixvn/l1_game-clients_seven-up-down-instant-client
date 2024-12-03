@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "477d5678-4f81-4c75-a978-3fcd43e980df",
+  "uuid": "3294d7f1-3114-462c-86d0-9eab6947837e",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "scoreboard-statistic"
+    "syncNodeName": "portrait-dice-statistic"
   }
 }

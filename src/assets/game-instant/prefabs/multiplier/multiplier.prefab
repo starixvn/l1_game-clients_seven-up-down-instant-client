@@ -38,10 +38,13 @@
       },
       {
         "__id__": 108
+      },
+      {
+        "__id__": 110
       }
     ],
     "_prefab": {
-      "__id__": 110
+      "__id__": 112
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -105,8 +108,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -59,
-      "y": 24,
+      "x": -115,
+      "y": 30,
       "z": 0
     },
     "_lrot": {
@@ -687,7 +690,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@21944",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@0402f",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -827,8 +830,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 39,
-      "y": -155,
+      "x": 0,
+      "y": -130,
       "z": 0
     },
     "_lrot": {
@@ -1409,7 +1412,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@21944",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@0402f",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -1549,8 +1552,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 159,
-      "y": 24,
+      "x": 110,
+      "y": 30,
       "z": 0
     },
     "_lrot": {
@@ -2131,7 +2134,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@21944",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@0402f",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -2313,6 +2316,25 @@
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "8aZ/ldxE5KWZHAsKJ/1IRC"
+  },
+  {
+    "__type__": "018c96iNgNBbL/A+Sjk3+FM",
+    "_name": "",
+    "_objFlags": 0,
+    "__editorExtras__": {},
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 111
+    },
+    "groupId": 3,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "01aV1G7lRBK4U5pbGgRg+2"
   },
   {
     "__type__": "cc.PrefabInfo",

@@ -1,9 +1,8 @@
 import gc from "@sg/game-client-base";
-import { _decorator, Label } from "cc";
+import { _decorator } from "cc";
 import { ResultStatistic } from "db://shared-components/game/result-statistic/scripts/components/result-statistic";
 const { ccclass, property } = _decorator;
 import Observer from "observer";
-const { render } = Observer;
 
 @ccclass
 export class SevenUpDownResultStatistic extends ResultStatistic {

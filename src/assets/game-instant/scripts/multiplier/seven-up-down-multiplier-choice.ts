@@ -46,7 +46,7 @@ export default class SevenUpDownMultiplierChoice extends Component {
     }
 
     animRollingMultiplier() {
-        this.nodeMultiplier.setPosition(new Vec3(this.nodeMultiplier.position.x, 26, 0));
+        this.nodeMultiplier.setPosition(new Vec3(this.nodeMultiplier.position.x, 0, 0));
 
         const waitingDuration = 0.26;
         this.multiplierTween?.stop();
@@ -68,6 +68,7 @@ export default class SevenUpDownMultiplierChoice extends Component {
 
     appendMultiplier() {
         const listMultipliers = this.generateRandomMultipliers();
+        console.log("appendMultiplier", listMultipliers);
         this.setFinalMultiplier();
 
         for (const multiplier of listMultipliers) {

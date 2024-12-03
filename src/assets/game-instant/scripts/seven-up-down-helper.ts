@@ -1,6 +1,6 @@
 import gc from "@sg/game-client-base";
 import { _decorator, sp } from "cc";
-import { ISevenUpDownResult, BetChoice } from "./seven-up-down-choices";
+import { BetChoice } from "./seven-up-down-choices";
 
 export const findWinningChoice = (settlementResult: any): string => {
     return Object.keys(settlementResult).find((key) => settlementResult[key] === true);

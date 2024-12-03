@@ -5,6 +5,9 @@
     "dice_shake": {
         "bundle": "resources"
     },
+    "down_win_vi": {
+        "bundle": "resources"
+    },
     "down_win_en": {
         "bundle": "resources"
     },
