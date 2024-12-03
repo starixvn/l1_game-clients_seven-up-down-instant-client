@@ -148,7 +148,7 @@
       "__expectedType__": "cc.BitmapFont"
     },
     "_isSystemFontUsed": false,
-    "_spacingX": 0,
+    "_spacingX": -2,
     "_isItalic": false,
     "_isBold": false,
     "_isUnderline": false,

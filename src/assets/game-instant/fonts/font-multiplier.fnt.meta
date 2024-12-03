@@ -11,7 +11,7 @@
     "_fntConfig": {
       "commonHeight": 40,
       "fontSize": 40,
-      "atlasName": "D:\\\\font-multiplier.png",
+      "atlasName": "font-multiplier.png",
       "fontDefDictionary": {
         "9": {
           "rect": {
@@ -75,7 +75,7 @@
             "width": 30,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -86,7 +86,7 @@
             "width": 30,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -97,7 +97,7 @@
             "width": 31,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -108,7 +108,7 @@
             "width": 30,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -119,7 +119,7 @@
             "width": 31,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -130,7 +130,7 @@
             "width": 29,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -141,7 +141,7 @@
             "width": 31,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -152,7 +152,7 @@
             "width": 31,
             "height": 37
           },
-          "xOffset": -4,
+          "xOffset": 0,
           "yOffset": 0,
           "xAdvance": 26
         },
@@ -163,7 +163,7 @@
             "width": 26,
             "height": 28
           },
-          "xOffset": -5,
+          "xOffset": 0,
           "yOffset": 9,
           "xAdvance": 26
         }

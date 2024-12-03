@@ -1,4 +1,4 @@
-import { _decorator, Prefab, Component, Node, Tween, v3, tween, Layout, sp, UIOpacity, Vec3, instantiate } from "cc";
+import { _decorator, Component, instantiate, Layout, Node, Prefab, sp, Tween, tween, UIOpacity, Vec3 } from "cc";
 import { AnimationUtils } from "../../../../extensions/shared-components/assets/shared/utils";
 import SevenUpDownMultiplierItem from "./seven-up-down-multiplier-item";
 const { ccclass, property } = _decorator;
@@ -54,7 +54,7 @@ export default class SevenUpDownMultiplierChoice extends Component {
             .delay(waitingDuration)
             .to(1.2, { position: new Vec3(this.nodeMultiplier.position.x, -238, 0) })
             .to(1.83, { position: new Vec3(this.nodeMultiplier.position.x, -this.OFFSET_MULTIPLIER, 0) })
-            .to(0.67, { position: new Vec3(this.nodeMultiplier.position.x, -498, 0) })
+            .to(0.67, { position: new Vec3(this.nodeMultiplier.position.x, -500, 0) })
             .start();
     }
 
