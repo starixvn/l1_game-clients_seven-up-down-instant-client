@@ -21,4 +21,6 @@ export namespace GameServiceMessage {
 
         static eventName = "gameConfigs";
     }
+
+    export const signedIn = "signedIn";
 }
