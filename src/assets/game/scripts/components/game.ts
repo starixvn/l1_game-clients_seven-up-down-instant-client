@@ -213,13 +213,16 @@ export default class Game extends GameComponent {
 
     @render(RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
     async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
-        if (!firstJoinGameHistory) {
-            return;
-        }
+        if (!firstJoinGameHistory) return;
 
         const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
-        if (lastRound && animationHighlight && roundTime > 0) {
-            const { result, roundId } = lastRound;
+        if (!lastRound || roundTime <= 0) return;
+
+        const { result, roundId } = lastRound;
+
+        if (animationHighlight) {
+            this.showResultAnim(result, roundId, result);
+        } else {
             this.resultComp?.showResultNoAnim(result, roundId);
             this.resetMultiplierAndResultText();
         }

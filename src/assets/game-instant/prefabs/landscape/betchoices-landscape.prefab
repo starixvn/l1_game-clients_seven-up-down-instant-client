@@ -1400,7 +1400,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36.500893373842594,
+      "width": 36.50320319233194,
       "height": 37.800000000000004
     },
     "_anchorPoint": {
@@ -1439,7 +1439,7 @@
     "_string": "1:2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.33928571428571,
+    "_actualFontSize": 31.347290640394085,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -1963,7 +1963,7 @@
       "a": 255
     },
     "_spriteFrame": {
-      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@228c1",
+      "__uuid__": "bb789792-b1b7-476f-97e6-4a034a45a4f2@40f9d",
       "__expectedType__": "cc.SpriteFrame"
     },
     "_type": 0,
@@ -3461,7 +3461,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36.500893373842594,
+      "width": 36.50320319233194,
       "height": 37.800000000000004
     },
     "_anchorPoint": {
@@ -3500,7 +3500,7 @@
     "_string": "1:2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.33928571428571,
+    "_actualFontSize": 31.347290640394085,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -5361,7 +5361,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36.500893373842594,
+      "width": 36.50320319233194,
       "height": 37.800000000000004
     },
     "_anchorPoint": {
@@ -5400,7 +5400,7 @@
     "_string": "1:2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.33928571428571,
+    "_actualFontSize": 31.347290640394085,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -6210,7 +6210,7 @@
     "fileId": "b9vkqUrh1IULqHvr2PXLtE"
   },
   {
-    "__type__": "11b92kx219MlJsJyqnE2hdC",
+    "__type__": "be46eOGYJlO4qv+qSkM4vTh",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -6225,7 +6225,7 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "bdlUQZVAtEVYACevhxCaJI"
+    "fileId": "83fno9hj1CSqNt5KJQ7M6j"
   },
   {
     "__type__": "cc.PrefabInfo",
