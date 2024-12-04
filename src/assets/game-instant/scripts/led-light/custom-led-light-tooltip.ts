@@ -1,8 +1,7 @@
 import gc from "@sg/game-client-base";
-import { _decorator, CCFloat, Color, Node, UITransform, v3 } from "cc";
+import { _decorator, CCFloat, Node, UITransform, v3 } from "cc";
 import { LedLightTooltip } from "db://shared-components/game/led-light/scripts/components/led-light-tooltip";
 import { findWinningChoice } from "../seven-up-down-helper";
-
 const { ccclass, property } = _decorator;
 
 export enum TipAlignment {
@@ -11,10 +10,6 @@ export enum TipAlignment {
     Right,
 }
 
-enum ColorResult {
-    home = "#0535b3",
-    away = "#d5301a",
-}
 @ccclass("CustomLedLightTooltip")
 export class CustomLedLightTooltip extends LedLightTooltip {
     @property(Node)
@@ -30,19 +25,19 @@ export class CustomLedLightTooltip extends LedLightTooltip {
     public setTooltipInfo(ledLightInfo: gc.RoundHistories.RoundHistory) {
         const roundIdText = `#${ledLightInfo.roundId}`;
         this.roundId.string = roundIdText;
-        const { settlementResult } = ledLightInfo;
+        const { settlementResult, result } = ledLightInfo;
         const rawWinChoice = findWinningChoice(settlementResult);
         const winChoice = rawWinChoice === "seven" ? "7" : rawWinChoice;
-        let name = gc.Translator.gameTranslate(`glossary_${winChoice}`);
+        let choiceWin = gc.Translator.gameTranslate(`glossary_${winChoice}`).toUpperCase();
+        const diceResult = `(${result["dice1"]},${result["dice2"]})`;
 
-        this.result.string = name.toUpperCase();
-        this.result.color = new Color(ColorResult[winChoice]);
+        this.result.string =`${choiceWin} ${diceResult}`;
 
         const backgroundTransform = this.background.getComponent(UITransform);
         if (backgroundTransform) {
             const letterWidth = 19;
             const roundIdWidth = roundIdText.length * letterWidth;
-            let backgroundWidth = (name?.length || 9) * letterWidth;
+            let backgroundWidth = (this.result.string?.length || 9) * letterWidth;
             backgroundWidth = backgroundWidth > roundIdWidth ? backgroundWidth : roundIdWidth;
             backgroundTransform.width = backgroundWidth;
         }

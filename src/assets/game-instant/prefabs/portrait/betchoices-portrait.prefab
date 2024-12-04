@@ -181,7 +181,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -109,
-      "y": 67,
+      "y": 69,
       "z": 0
     },
     "_lrot": {
@@ -1245,7 +1245,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36.500893373842594,
+      "width": 36.50320319233194,
       "height": 37.800000000000004
     },
     "_anchorPoint": {
@@ -1284,7 +1284,7 @@
     "_string": "1:2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.33928571428571,
+    "_actualFontSize": 31.347290640394085,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -2142,7 +2142,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -104,
+      "y": -106,
       "z": 0
     },
     "_lrot": {
@@ -2233,7 +2233,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 430,
-      "height": 130
+      "height": 136
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2505,7 +2505,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 430,
-      "height": 137
+      "height": 136
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -3256,7 +3256,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36.500893373842594,
+      "width": 36.50320319233194,
       "height": 37.800000000000004
     },
     "_anchorPoint": {
@@ -3295,7 +3295,7 @@
     "_string": "1:2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.33928571428571,
+    "_actualFontSize": 31.347290640394085,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -4020,7 +4020,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 108,
-      "y": 68,
+      "y": 70,
       "z": 0
     },
     "_lrot": {
@@ -5134,7 +5134,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 36.500893373842594,
+      "width": 36.50320319233194,
       "height": 37.800000000000004
     },
     "_anchorPoint": {
@@ -5173,7 +5173,7 @@
     "_string": "1:2",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 31.33928571428571,
+    "_actualFontSize": 31.347290640394085,
     "_fontSize": 26,
     "_fontFamily": "Arial",
     "_lineHeight": 30,

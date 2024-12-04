@@ -8,7 +8,7 @@ const { render } = Observer;
 @ccclass
 export default class SevenChipFlying extends ChipFlyingInstant {
     private readonly DELAY_DEFAULT_DURATION = 4;
-    private readonly DELAY_MULTIPLIER_DURATION = 11;
+    private readonly DELAY_MULTIPLIER_DURATION = 10;
     @render(gc.Settlements.SettlementStore, (store) => store.result)
     updateDelayAnimPayChip(result: ISevenUpDownResult) {
         this.delayAnimPayChips = result?.multiplier ? this.DELAY_MULTIPLIER_DURATION : this.DELAY_DEFAULT_DURATION;

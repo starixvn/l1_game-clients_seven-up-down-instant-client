@@ -68,7 +68,6 @@ export default class SevenUpDownMultiplierChoice extends Component {
 
     appendMultiplier() {
         const listMultipliers = this.generateRandomMultipliers();
-        console.log("appendMultiplier", listMultipliers);
         this.setFinalMultiplier();
 
         for (const multiplier of listMultipliers) {

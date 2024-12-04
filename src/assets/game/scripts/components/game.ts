@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, _decorator, sp, Tween, tween, v3, CCFloat, Vec3 } from "cc";
+import { Label, Node, _decorator, sp, Tween, tween, v3, Vec3 } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
 import Observer from "observer";
@@ -18,11 +18,6 @@ startGame(settings.name, containerOptions, siteConfigs, settings.namespaces);
 
 const { ccclass, property } = _decorator;
 const { observer, render, handle } = Observer;
-
-type ResultSoundInfo = {
-    soundId: string;
-    duration: number;
-};
 
 @ccclass
 @observer(settings.name)
@@ -64,7 +59,7 @@ export default class Game extends GameComponent {
 
     multiplierTween: Tween<Node> | null = null;
     protected clientRoundId = -1;
-    protected resultSoundIds: ResultSoundInfo[] = [];
+
     enableFixHandleFinish = true;
 
     protected lastRound: gc.RoundHistories.RoundHistory = null;
@@ -102,7 +97,6 @@ export default class Game extends GameComponent {
     }
 
     async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
-        //this.playWinningSound(settlementResult);
         super.finishShowResult(result, settlementResult);
     }
 
@@ -172,7 +166,7 @@ export default class Game extends GameComponent {
 
     @render(Rounds.RoundTimeStore, (store) => store.isStartPlacingBet)
     startPlacingBet(isStartPlacingBet: boolean) {
-        this.playStoppableSFX(this.crowdSounds);
+        //this.playStoppableSFX(this.crowdSounds);
     }
 
     playWinningSound(settlementResult: gc.GameServiceMessage.TSettlementResult) {
@@ -205,7 +199,6 @@ export default class Game extends GameComponent {
         if (isStartRound) {
             super.handleStartRound(isStartRound);
             this.resultComp?.setResultTextVisibility(false);
-            this.resultSoundIds = [];
             this.multiplierTween?.stop();
             this.spineExtraPaid.node.active = false;
             this.isFinishDiceAnim = false;
