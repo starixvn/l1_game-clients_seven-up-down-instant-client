@@ -218,9 +218,9 @@
     "_dstBlendFactor": 4,
     "_color": {
       "__type__": "cc.Color",
-      "r": 213,
-      "g": 37,
-      "b": 21,
+      "r": 14,
+      "g": 18,
+      "b": 25,
       "a": 255
     },
     "_string": "拜登",

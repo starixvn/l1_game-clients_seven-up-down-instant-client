@@ -2965,7 +2965,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": 63,
-      "y": 54,
+      "y": 50,
       "z": 0
     }
   },
@@ -5465,7 +5465,7 @@
     "positionDiceCupDefault": {
       "__type__": "cc.Vec3",
       "x": 63,
-      "y": 54,
+      "y": 50,
       "z": 0
     },
     "positionShowDiceCup": {
@@ -5479,9 +5479,6 @@
       "x": 1.7,
       "y": 1.7,
       "z": 1.7
-    },
-    "nodeBetItems": {
-      "__id__": 19
     },
     "_id": "a5mppcr9xMh7eLStNdpO8s"
   },
