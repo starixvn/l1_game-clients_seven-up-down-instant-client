@@ -679,22 +679,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>table-text-down-cs.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,2}</string>
-                <key>spriteSize</key>
-                <string>{47,45}</string>
-                <key>spriteSourceSize</key>
-                <string>{151,63}</string>
-                <key>textureRect</key>
-                <string>{{303,199},{47,45}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>table-text-down-en.png</key>
+            <key>table-text-down_en.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -709,7 +694,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>table-text-down-in.png</key>
+            <key>table-text-down_id.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -724,7 +709,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>table-text-down-tn.png</key>
+            <key>table-text-down_th.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -739,7 +724,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>table-text-down-vn.png</key>
+            <key>table-text-down_vi.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -754,22 +739,37 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>table-text-up-cs.png</key>
+            <key>table-text-down_zh_cn.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
-                <string>{0,0}</string>
+                <string>{0,2}</string>
                 <key>spriteSize</key>
-                <string>{45,41}</string>
+                <string>{47,45}</string>
                 <key>spriteSourceSize</key>
                 <string>{151,63}</string>
                 <key>textureRect</key>
-                <string>{{307,152},{45,41}}</string>
+                <string>{{303,199},{47,45}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
-            <key>table-text-up-en.png</key>
+            <key>table-text-down_zh_tw.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,2}</string>
+                <key>spriteSize</key>
+                <string>{47,45}</string>
+                <key>spriteSourceSize</key>
+                <string>{151,63}</string>
+                <key>textureRect</key>
+                <string>{{303,199},{47,45}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>table-text-up_en.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -784,7 +784,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>table-text-up-in.png</key>
+            <key>table-text-up_id.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -799,7 +799,7 @@
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>table-text-up-th.png</key>
+            <key>table-text-up_th.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -814,7 +814,7 @@
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>table-text-up-vn.png</key>
+            <key>table-text-up_vi.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
@@ -828,6 +828,36 @@
                 <string>{{200,122},{105,47}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>table-text-up_zh_cn.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{45,41}</string>
+                <key>spriteSourceSize</key>
+                <string>{151,63}</string>
+                <key>textureRect</key>
+                <string>{{307,152},{45,41}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>table-text-up_zh_tw.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{45,41}</string>
+                <key>spriteSourceSize</key>
+                <string>{151,63}</string>
+                <key>textureRect</key>
+                <string>{{307,152},{45,41}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -843,7 +873,7 @@
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:0464b1d45dede5d85aa5050f5213d813:30bc6c58d517c890323fa98d608f2663:e147f20b775ca9f3158c72b2685f8ee7$</string>
+            <string>$TexturePacker:SmartUpdate:2e75fb87d521387cdbe0007e82a6d69a:6aaf4cdbc196d04ead6d7ee36afad46c:e147f20b775ca9f3158c72b2685f8ee7$</string>
             <key>textureFileName</key>
             <string>instant-main.png</string>
         </dict>
