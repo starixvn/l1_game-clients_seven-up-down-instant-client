@@ -25,6 +25,7 @@
 
 .splash-container .bg_no_translate {
     background-image: url("./landscape_game_background.png?v=4") !important;
+    transform: scale(0.8);
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
