@@ -377,8 +377,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 390,
-      "height": 234
+      "width": 370,
+      "height": 220
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -710,7 +710,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 390,
+      "width": 370,
       "height": 8
     },
     "_anchorPoint": {
@@ -1120,7 +1120,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 391,
+      "width": 371,
       "height": 236
     },
     "_anchorPoint": {
@@ -1266,7 +1266,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 0,
-      "height": 234
+      "height": 180
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1381,7 +1381,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 390,
+      "width": 370,
       "height": 234
     },
     "_anchorPoint": {
@@ -1458,8 +1458,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 390,
-      "height": 234
+      "width": 370,
+      "height": 220
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1504,7 +1504,7 @@
   },
   {
     "__type__": "GridItemSettings",
-    "size": 39,
+    "size": 30,
     "prefab": {
       "__uuid__": "70cdfebc-ac4a-4452-a0c3-31ece291486b",
       "__expectedType__": "cc.Prefab"
@@ -1517,7 +1517,7 @@
     "scrollToEnd": true,
     "row": 6,
     "column": 10,
-    "itemSize": 39,
+    "itemSize": 30,
     "itemPrefab": {
       "__uuid__": "70cdfebc-ac4a-4452-a0c3-31ece291486b",
       "__expectedType__": "cc.Prefab"

@@ -155,7 +155,7 @@ export default class Game extends GameComponent {
                 .call(() => {
                     this.playWinningSound(settlementResult);
                 })
-                .delay(2.5)
+                .delay(2)
                 .to(0.1, { scale: v3(1, 1, 1), position: this.positionDiceCupDefault }) // Reset scale and position
                 .call(resolve)
                 .start();
@@ -220,8 +220,9 @@ export default class Game extends GameComponent {
 
         const { result, roundId } = lastRound;
 
-        if (animationHighlight) {
+        if (animationHighlight && roundTime > settings.durations.wholeRound - 8) {
             this.showResultAnim(result, roundId, result);
+            //this.resultComp?.showResultAnim(result, result, roundId);
         } else {
             this.resultComp?.showResultNoAnim(result, roundId);
             this.resetMultiplierAndResultText();

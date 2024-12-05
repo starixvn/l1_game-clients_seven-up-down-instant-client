@@ -7,7 +7,6 @@ const { ccclass } = _decorator;
 
 @ccclass
 export default class SevenUpDownBetItems extends BetItems {
-
     @render(gc.RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
     async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
         if (!firstJoinGameHistory) return;
@@ -15,7 +14,7 @@ export default class SevenUpDownBetItems extends BetItems {
         const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
         if (!lastRound || roundTime <= 0) return;
         const { settlementResult } = lastRound;
-        if (animationHighlight) {
+        if (animationHighlight && roundTime > 25) {
             setTimeout(() => {
                 this.betItemComponents.forEach((betItem) => {
                     const choice = betItem.node.name;
