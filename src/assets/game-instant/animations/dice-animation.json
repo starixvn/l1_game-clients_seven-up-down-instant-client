@@ -28,8 +28,8 @@
 ],
 "slots": [
 	{ "name": "box-inside", "bone": "box-inside", "attachment": "box-inside" },
-	{ "name": "image-dice-1", "bone": "dice-1" },
-	{ "name": "image-dice-2", "bone": "dice-2" }
+	{ "name": "dice-1", "bone": "dice-1" },
+	{ "name": "dice-2", "bone": "dice-2" }
 ],
 "skins": [
 	{

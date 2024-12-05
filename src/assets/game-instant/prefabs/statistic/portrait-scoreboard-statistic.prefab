@@ -28,14 +28,14 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 83
+        "__id__": 84
       },
       {
-        "__id__": 85
+        "__id__": 86
       }
     ],
     "_prefab": {
-      "__id__": 87
+      "__id__": 88
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -275,14 +275,14 @@
         "__id__": 73
       },
       {
-        "__id__": 78
+        "__id__": 79
       },
       {
-        "__id__": 80
+        "__id__": 81
       }
     ],
     "_prefab": {
-      "__id__": 82
+      "__id__": 83
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -377,8 +377,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 370,
-      "height": 220
+      "width": 390,
+      "height": 234
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -710,7 +710,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 370,
+      "width": 390,
       "height": 8
     },
     "_anchorPoint": {
@@ -1120,7 +1120,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 371,
+      "width": 391,
       "height": 236
     },
     "_anchorPoint": {
@@ -1266,7 +1266,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 0,
-      "height": 180
+      "height": 234
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1381,7 +1381,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 370,
+      "width": 390,
       "height": 234
     },
     "_anchorPoint": {
@@ -1458,8 +1458,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 370,
-      "height": 220
+      "width": 390,
+      "height": 234
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1504,7 +1504,7 @@
   },
   {
     "__type__": "GridItemSettings",
-    "size": 30,
+    "size": 39,
     "prefab": {
       "__uuid__": "70cdfebc-ac4a-4452-a0c3-31ece291486b",
       "__expectedType__": "cc.Prefab"
@@ -1517,7 +1517,7 @@
     "scrollToEnd": true,
     "row": 6,
     "column": 10,
-    "itemSize": 30,
+    "itemSize": 39,
     "itemPrefab": {
       "__uuid__": "70cdfebc-ac4a-4452-a0c3-31ece291486b",
       "__expectedType__": "cc.Prefab"
@@ -1569,6 +1569,9 @@
       },
       {
         "__id__": 77
+      },
+      {
+        "__id__": 78
       }
     ],
     "_id": ""
@@ -1593,6 +1596,11 @@
     "value": "down"
   },
   {
+    "__type__": "ScoreboardConverterProperty",
+    "key": "keyOfA",
+    "value": "seven"
+  },
+  {
     "__type__": "d7b60Kca8BEGqgWIhYvDlzD",
     "_name": "",
     "_objFlags": 0,
@@ -1602,7 +1610,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 79
+      "__id__": 80
     },
     "converter": {
       "__id__": 73
@@ -1626,7 +1634,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 81
+      "__id__": 82
     },
     "grid": {
       "__id__": 67
@@ -1635,7 +1643,7 @@
       "__id__": 73
     },
     "algorithm": {
-      "__id__": 78
+      "__id__": 79
     },
     "_id": ""
   },
@@ -1666,7 +1674,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 84
+      "__id__": 85
     },
     "_contentSize": {
       "__type__": "cc.Size",
@@ -1694,7 +1702,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 86
+      "__id__": 87
     },
     "scoreboards": [],
     "resultPercentage": null,
