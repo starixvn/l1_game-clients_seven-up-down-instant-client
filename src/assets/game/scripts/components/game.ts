@@ -147,7 +147,14 @@ export default class Game extends GameComponent {
 
         await new Promise<void>((resolve) => {
             tween(this.resultNode)
-                .to(0.1, { position: this.positionShowDiceCup, scale: this.scaleDiceCupNode }) // Move and scale up
+                .to(
+                    0.2,
+                    {
+                        position: this.positionShowDiceCup,
+                        scale: this.scaleDiceCupNode,
+                    },
+                    { easing: "cubicInOut" }
+                )
                 .call(() => {
                     this.resultComp?.showResultAnim(prevResult, result, roundId); // Show the result animation
                 })
