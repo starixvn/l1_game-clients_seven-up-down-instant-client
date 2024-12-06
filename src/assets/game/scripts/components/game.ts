@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, _decorator, sp, Tween, tween, v3, Vec3 } from "cc";
+import { Label, Node, _decorator, sp, Tween, tween, v3, Vec3, UIOpacity } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
 import Observer from "observer";
@@ -44,7 +44,10 @@ export default class Game extends GameComponent {
     positionShowDiceCup: Vec3 = null;
 
     @property(Vec3)
-    scaleDiceCupNode: Vec3 = null;
+    scaleDiceCupSettlement: Vec3 = null;
+
+    @property(Vec3)
+    scaleDiceCupDefault: Vec3 = null;
 
     public resultComp: SevenUpDownResult = null;
 
@@ -147,25 +150,31 @@ export default class Game extends GameComponent {
 
         await new Promise<void>((resolve) => {
             tween(this.resultNode)
-                .to(
-                    0.2,
-                    {
-                        position: this.positionShowDiceCup,
-                        scale: this.scaleDiceCupNode,
-                    },
-                    { easing: "cubicInOut" }
-                )
+                .to(0.07, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
+                .to(0.07, {
+                    position: new Vec3(this.positionShowDiceCup.x, this.positionShowDiceCup.y - 20, this.positionShowDiceCup.z),
+                    scale: new Vec3(0.98, 0.9, 1),
+                })
+                .to(0.07, {
+                    position: this.positionShowDiceCup,
+                    scale: this.scaleDiceCupSettlement,
+                })
+                .delay(0.2)
                 .call(() => {
                     this.resultComp?.showResultAnim(prevResult, result, roundId); // Show the result animation
                 })
-                .delay(this.resultComp?.RESULT_DURATION || 0) // Wait for RESULT_DURATION
+                .delay(this.resultComp?.RESULT_DURATION || 0)
                 .call(() => {
                     this.playWinningSound(settlementResult);
                 })
-                .delay(2)
-                .to(0.1, { scale: v3(1, 1, 1), position: this.positionDiceCupDefault }) // Reset scale and position
+                .delay(1.6)
+                .to(0.4, {
+                    position: this.positionDiceCupDefault,
+                    scale: this.scaleDiceCupDefault,
+                })
                 .call(resolve)
                 .start();
+            this.resultComp.playHighLight();
         });
 
         this.isFinishDiceAnim = true;

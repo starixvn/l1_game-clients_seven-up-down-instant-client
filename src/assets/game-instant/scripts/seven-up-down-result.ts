@@ -1,4 +1,4 @@
-import { _decorator, sp, Component, UIOpacity, Vec3, SpriteFrame, Label, Node, Tween, SpriteAtlas, Sprite } from "cc";
+import { _decorator, sp, Component, UIOpacity, Vec3, SpriteFrame, Label, Node, Tween, SpriteAtlas, Sprite, tween, v3 } from "cc";
 import { AnimationUtils } from "../../../extensions/shared-components/assets/shared/utils";
 import { calcTotalPoints, determineWinningChoice, pauseSpineAnimation } from "./seven-up-down-helper";
 import { SevenUpDownDice } from "./seven-up-down-dice";
@@ -78,9 +78,23 @@ export class SevenUpDownResult extends Component {
         });
     }
 
+    playHighLight() {
+        const uiOpacity = this.resultBg.getComponent(UIOpacity);
+        tween(this.resultBg.node)
+            .to(0.2, { scale: v3(1.08, 1.08, 1) })
+            .call(() => {
+                uiOpacity.opacity = 255;
+            })
+            .delay(3)
+            .to(0.4, { scale: v3(1, 1, 1) })
+            .call(() => {
+                uiOpacity.opacity = 0;
+            })
+            .start();
+    }
+
     setResultTextVisibility(isShow: boolean) {
         if (!this.nodeResult) return;
-        this.resultBg.node.active = isShow;
         this.nodeResult.active = isShow;
 
         const uiOpacity = this.nodeResult.getComponent(UIOpacity) || this.nodeResult.addComponent(UIOpacity);
@@ -127,7 +141,7 @@ export class SevenUpDownResult extends Component {
                 this.RESULT_DURATION
             );
         }
-       
+
         this.dicesComponent.forEach((dice, index) => {
             dice.runAnimation(this.resultDiceFrames[`dice${index + 1}`], this.RESULT_DURATION);
         });

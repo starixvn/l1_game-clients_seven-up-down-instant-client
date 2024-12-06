@@ -21,6 +21,8 @@ export default class SevenUpDownBetItems extends BetItems {
                     betItem.handleHighlightAnim(this.isWinning(+settlementResult?.[choice]));
                 });
             }, 3000);
+        } else {
+            this.showHighlightStatic(lastRound.settlementResult);
         }
     }
 
