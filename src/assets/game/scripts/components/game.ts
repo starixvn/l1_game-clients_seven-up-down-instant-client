@@ -69,6 +69,8 @@ export default class Game extends GameComponent {
 
     protected roundId: number = null;
 
+    protected histories: gc.RoundHistories.RoundHistory[];
+
     onLoad() {
         super.onLoad();
         this.fetchComponents();
@@ -145,22 +147,22 @@ export default class Game extends GameComponent {
     }
 
     async showResultAnim(result: gc.GameServiceMessage.TResult, roundId: number, settlementResult): Promise<void> {
-        this.playStoppableSFX("dice_shake");
         const prevResult = this.lastRound?.result;
 
         await new Promise<void>((resolve) => {
             tween(this.resultNode)
-                .to(0.07, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
-                .to(0.07, {
+                .to(0.1, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
+                .to(0.1, {
                     position: new Vec3(this.positionShowDiceCup.x, this.positionShowDiceCup.y - 20, this.positionShowDiceCup.z),
                     scale: new Vec3(0.98, 0.9, 1),
                 })
-                .to(0.07, {
+                .to(0.2, {
                     position: this.positionShowDiceCup,
                     scale: this.scaleDiceCupSettlement,
                 })
                 .delay(0.2)
                 .call(() => {
+                    this.playStoppableSFX("dice_shake");
                     this.resultComp?.showResultAnim(prevResult, result, roundId); // Show the result animation
                 })
                 .delay(this.resultComp?.RESULT_DURATION || 0)
@@ -233,16 +235,20 @@ export default class Game extends GameComponent {
 
         const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
         if (!lastRound || roundTime <= 0) return;
-
+        this.resultComp?.showResultNoAnim(this.histories[1]?.result, this.histories[1]?.roundId);
         const { result, roundId } = lastRound;
 
         if (animationHighlight && roundTime > settings.durations.wholeRound - 8) {
             this.showResultAnim(result, roundId, result);
-            //this.resultComp?.showResultAnim(result, result, roundId);
         } else {
             this.resultComp?.showResultNoAnim(result, roundId);
             this.resetMultiplierAndResultText();
         }
+    }
+
+    @render(gc.RoundHistories.RoundHistoryStore, (store) => store.histories)
+    updateHistories(dataLogs: any[]) {
+        this.histories = dataLogs;
     }
 
     resetMultiplierAndResultText() {
