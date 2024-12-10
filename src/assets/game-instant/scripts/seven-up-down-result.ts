@@ -40,7 +40,6 @@ export class SevenUpDownResult extends Component {
 
     onLoad() {
         this.setResultTextVisibility(false);
-        this.resetResultDiceFrames();
         this.initDiceSpriteFrames();
     }
 
@@ -67,6 +66,7 @@ export class SevenUpDownResult extends Component {
     }
 
     showResultNoAnim(result: gc.GameServiceMessage.TResult, roundId: number) {
+        console.log("showResultNoAnim", result, roundId);
         this.stopAllDiceAnimation();
         if (this.diceSkeleton) {
             pauseSpineAnimation(this.diceSkeleton.getComponent(sp.Skeleton), 1, this.getDiceAnimationName(roundId));

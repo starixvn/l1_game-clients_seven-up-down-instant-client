@@ -33,9 +33,13 @@ export default class SevenUpDownMultiplier extends ObserverComponent {
         if (!multiplier) {
             return;
         }
+
         const choice = this.listMultiplier.find((choice) => choice.name === multiplier.choice);
-        this.multiplierAnim = choice.getComponent(SevenUpDownMultiplierChoice);
-        this.multiplierAnim.multiplierValue = multiplier.value;
+        this.multiplierAnim = choice?.getComponent(SevenUpDownMultiplierChoice);
+        if (!this.multiplierAnim || !choice) {
+            return;
+        }
+        this.multiplierAnim.multiplierValue = multiplier?.value;
         this.multiplierAnim.listMultiplierOrigin = this.multipliersConfigs;
         choice.active = true;
         this.multiplierAnim.showMultiplier(animated);

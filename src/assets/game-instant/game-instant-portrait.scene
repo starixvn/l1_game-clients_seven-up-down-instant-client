@@ -4200,7 +4200,7 @@
       "prefab"
     ],
     "value": {
-      "__uuid__": "1371b3b1-95d9-40cb-b34a-ca31454677a9",
+      "__uuid__": "ad1fd8fe-d3c1-4a5c-8bfe-b403fe96680c",
       "__expectedType__": "cc.Prefab"
     }
   },
@@ -4219,7 +4219,7 @@
       "processingWarningPrefab"
     ],
     "value": {
-      "__uuid__": "1371b3b1-95d9-40cb-b34a-ca31454677a9",
+      "__uuid__": "ad1fd8fe-d3c1-4a5c-8bfe-b403fe96680c",
       "__expectedType__": "cc.Prefab"
     }
   },

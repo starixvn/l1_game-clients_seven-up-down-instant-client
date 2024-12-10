@@ -101,7 +101,7 @@ export default class Game extends GameComponent {
         }
     }
 
-    async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
+    async finishShowResult(result: ISevenUpDownResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
         super.finishShowResult(result, settlementResult);
     }
 
@@ -220,7 +220,7 @@ export default class Game extends GameComponent {
             this.multiplierTween?.stop();
             this.spineExtraPaid.node.active = false;
             this.isFinishDiceAnim = false;
-            this.resetMultiplierAndResultText();
+            this.resetMultiplierAndResultText(true);
         }
     }
 
@@ -232,18 +232,28 @@ export default class Game extends GameComponent {
     @render(RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
     async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
         if (!firstJoinGameHistory) return;
-
-        const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
-        if (!lastRound || roundTime <= 0) return;
         this.resultComp?.showResultNoAnim(this.histories[1]?.result, this.histories[1]?.roundId);
-        const { result, roundId } = lastRound;
+        const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
+        if (!lastRound) return;
 
+        const { result: rawResult, roundId } = lastRound;
+        const result = this.convertToSevenUpDownResult(rawResult);
+        if (animationHighlight) {
+            this.multiplierComp?.renderMultiplier(result?.multiplier, false);
+        }
         if (animationHighlight && roundTime > settings.durations.wholeRound - 8) {
             this.showResultAnim(result, roundId, result);
         } else {
             this.resultComp?.showResultNoAnim(result, roundId);
-            this.resetMultiplierAndResultText();
         }
+    }
+
+    private convertToSevenUpDownResult(rawResult: gc.GameServiceMessage.TResult): ISevenUpDownResult {
+        return {
+            dice1: rawResult["dice1"],
+            dice2: rawResult["dice2"],
+            multiplier: rawResult["multiplier"] ?? null,
+        } as ISevenUpDownResult;
     }
 
     @render(gc.RoundHistories.RoundHistoryStore, (store) => store.histories)
@@ -251,11 +261,11 @@ export default class Game extends GameComponent {
         this.histories = dataLogs;
     }
 
-    resetMultiplierAndResultText() {
+    resetMultiplierAndResultText(animated: boolean) {
         if (!this.multiplierComp || !this.resultComp) {
             return;
         }
-        this.multiplierComp.resetMultiplier(true);
+        this.multiplierComp.resetMultiplier(animated);
         this.resultComp.setResultTextVisibility(false);
     }
 }

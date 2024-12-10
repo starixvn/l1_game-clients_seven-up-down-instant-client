@@ -1,5 +1,3 @@
-import gc from "@sg/game-client-base";
-import { ISevenUpDownResult } from "../../game-instant/scripts/seven-up-down-choices";
 export namespace GameServiceMessage {
     export class MatchConfig {
         home: string;
