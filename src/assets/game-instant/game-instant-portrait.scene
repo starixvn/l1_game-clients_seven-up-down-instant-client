@@ -2039,8 +2039,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 283.46670959285626,
-      "height": 54.39999999999999
+      "width": 374.1220703125,
+      "height": 54.4
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -2069,11 +2069,11 @@
       "b": 255,
       "a": 255
     },
-    "_string": "Winning Boost!",
+    "_string": "Peningkat Kemenangan!",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 43.4039408866995,
-    "_fontSize": 36,
+    "_actualFontSize": 30,
+    "_fontSize": 30,
     "_fontFamily": "Arial",
     "_lineHeight": 40,
     "_overflow": 0,
