@@ -2,12 +2,12 @@
   "ver": "1.1.45",
   "importer": "prefab",
   "imported": true,
-  "uuid": "40803cbf-cd81-4efe-9480-8c83ee5b487f",
+  "uuid": "e2c6ff29-61a6-412d-b079-f9ba183c1b47",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "portrait-statistic-001"
+    "syncNodeName": "landscape-dice-statistic"
   }
 }

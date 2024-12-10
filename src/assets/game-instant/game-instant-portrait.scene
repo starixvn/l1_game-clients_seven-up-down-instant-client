@@ -205,7 +205,7 @@
     "_priority": 2,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 205,
+    "_orthoHeight": 215.64862104187947,
     "_near": 0,
     "_far": 2000,
     "_color": {
@@ -835,8 +835,8 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 36.51171875,
-      "height": 37.8
+      "width": 36.50320319233194,
+      "height": 37.800000000000004
     }
   },
   {
@@ -870,8 +870,8 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 36.51171875,
-      "height": 37.8
+      "width": 36.50320319233194,
+      "height": 37.800000000000004
     }
   },
   {
@@ -890,8 +890,8 @@
     ],
     "value": {
       "__type__": "cc.Size",
-      "width": 36.51171875,
-      "height": 37.8
+      "width": 36.50320319233194,
+      "height": 37.800000000000004
     }
   },
   {
@@ -1586,8 +1586,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 64,
-      "y": 234,
+      "x": 32,
+      "y": 216,
       "z": 0
     },
     "_lrot": {
@@ -2621,7 +2621,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": 73,
-      "y": 184,
+      "y": 187,
       "z": 0
     }
   },
@@ -5661,13 +5661,13 @@
     "positionDiceCupDefault": {
       "__type__": "cc.Vec3",
       "x": 74,
-      "y": 174,
+      "y": 186,
       "z": 0
     },
     "positionShowDiceCup": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 60,
+      "y": 80,
       "z": 0
     },
     "scaleDiceCupSettlement": {

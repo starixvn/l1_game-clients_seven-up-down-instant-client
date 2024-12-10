@@ -2,7 +2,6 @@ import gc from "@sg/game-client-base";
 import { _decorator } from "cc";
 import { ResultStatistic } from "db://shared-components/game/result-statistic/scripts/components/result-statistic";
 const { ccclass, property } = _decorator;
-import Observer from "observer";
 
 @ccclass
 export class SevenUpDownResultStatistic extends ResultStatistic {
@@ -10,17 +9,17 @@ export class SevenUpDownResultStatistic extends ResultStatistic {
     supportStatisticKeys = "up,down,seven";
 
     protected generateStatisticalData(histories: gc.RoundHistories.RoundHistory[]) {
-        const statisticCount = histories.reduce((result, history) => {
+        const statisticCount = histories.reduce((settlementResult, history) => {
             this.statisticKeys?.forEach((key) => {
-                if (history.result[key]) {
-                    result[key] = (result[key] || 0) + 1;
+                if (history.settlementResult[key]) {
+                    settlementResult[key] = (settlementResult[key] || 0) + 1;
                 }
             });
-            return result;
+            return settlementResult;
         }, {});
-        return Object.keys(statisticCount).reduce((result, key) => {
-            result[key] = `${Math.round((statisticCount[key] / histories.length) * 100)}%`;
-            return result;
+        return Object.keys(statisticCount).reduce((settlementResult, key) => {
+            settlementResult[key] = `${Math.round((statisticCount[key] / histories.length) * 100)}%`;
+            return settlementResult;
         }, {});
     }
 }

@@ -1693,7 +1693,7 @@
     "fileId": "12HBf5LYVF24uWE+K1gpye"
   },
   {
-    "__type__": "7c15fCIv8JEEJXs3ToN0h0H",
+    "__type__": "af4d67gjvhBXY1Aw4Z12y2r",
     "_name": "",
     "_objFlags": 0,
     "__editorExtras__": {},
@@ -1704,13 +1704,25 @@
     "__prefab": {
       "__id__": 87
     },
-    "scoreboards": [],
-    "resultPercentage": null,
+    "items": [],
+    "content": null,
+    "itemNext": null,
+    "rowMax": 6,
+    "itemSize": {
+      "__type__": "cc.Size",
+      "width": 22,
+      "height": 22
+    },
+    "padding": {
+      "__type__": "cc.Size",
+      "width": 2,
+      "height": 2
+    },
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "cbgh88ZTFLgLP8VQz1hwmg"
+    "fileId": "6eVBikvi1E0IGnGeJn53Qk"
   },
   {
     "__type__": "cc.PrefabInfo",

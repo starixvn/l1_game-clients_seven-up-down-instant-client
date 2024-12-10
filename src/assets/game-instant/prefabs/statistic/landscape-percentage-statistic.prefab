@@ -35,7 +35,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 68
+      "__id__": 71
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -321,7 +321,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "home-value",
+    "_name": "up",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -732,7 +732,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "away-value",
+    "_name": "seven",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -1143,7 +1143,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "away-value",
+    "_name": "down",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
@@ -1514,13 +1514,44 @@
     "__prefab": {
       "__id__": 67
     },
-    "statisticItems": [],
+    "statisticItems": [
+      {
+        "__id__": 68
+      },
+      {
+        "__id__": 69
+      },
+      {
+        "__id__": 70
+      }
+    ],
     "supportStatisticKeys": "up,down,seven",
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "64HnLoqeNJ45Uvgd6cdZOC"
+  },
+  {
+    "__type__": "ResultStatisticItemProperty",
+    "value": "up",
+    "label": {
+      "__id__": 13
+    }
+  },
+  {
+    "__type__": "ResultStatisticItemProperty",
+    "value": "down",
+    "label": {
+      "__id__": 49
+    }
+  },
+  {
+    "__type__": "ResultStatisticItemProperty",
+    "value": "seven",
+    "label": {
+      "__id__": 31
+    }
   },
   {
     "__type__": "cc.PrefabInfo",
