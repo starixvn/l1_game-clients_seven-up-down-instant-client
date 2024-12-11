@@ -1,4 +1,4 @@
-import { _decorator, Prefab, instantiate, SpriteFrame, Node, Layout, Widget } from "cc";
+import { _decorator, Prefab, instantiate, SpriteFrame, Node, Layout, Widget, ScrollView, UITransform } from "cc";
 import Observer from "observer";
 import gc from "@sg/game-client-base";
 import { ObserverComponent } from "../../../../extensions/shared-components/assets/shared/common-components/observer-component/scripts/observer-component";
@@ -21,15 +21,21 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
     @property(SevenUpDownStatistic)
     logView: SevenUpDownStatistic = null;
 
+    @property(Node)
+    statsScrollView: Node = null;
+
+    @property(Node)
+    diceStatisticNode: Node = null;
+
+    protected isShowDiceView = true;
 
     @render(gc.RoundHistories.RoundHistoryStore, (store) => store.histories)
     updateData(dataLogs: any[]) {
         this.updateRoundResult(dataLogs);
         this.renderLogView(dataLogs);
-
         this.roundResultContainer.getComponent(Layout).updateLayout();
-        //this.statsScrollView.getComponent(cc.ScrollView).horizontal = this.statsScrollView.width < this.roundResultContainer.width;
         this.roundResultContainer.getComponent(Widget).updateAlignment();
+        this.statsScrollView.getComponent(ScrollView).scrollToRight(0.2);
     }
 
     updateRoundResult(dataLogs: any[]) {
@@ -51,6 +57,7 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
     get getChoices(): string[] {
         return ["up", "seven", "down"];
     }
+
     renderLogView(dataLogs: any[]) {
         const statsData = [];
         if (dataLogs.length > 0) {
@@ -61,5 +68,12 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
             });
             this.logView.setData(statsData);
         }
+    }
+
+    changeDisplayMode() {
+        this.isShowDiceView = !this.isShowDiceView;
+        this.diceStatisticNode.active = this.isShowDiceView;
+        this.statsScrollView.active = this.isShowDiceView;
+        this.logView.node.active = !this.isShowDiceView;
     }
 }
