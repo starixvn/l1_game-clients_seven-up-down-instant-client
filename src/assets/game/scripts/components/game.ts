@@ -110,6 +110,7 @@ export default class Game extends GameComponent {
         const extraPayMessageDelayTime = multiplier ? this.SHOW_EXTRA_PAY_DURATION : 0;
         const multiplierDelayTime = multiplier ? this.SHOW_MULTIPLIER_DURATION : 0;
         this.multiplierTween?.stop();
+        this.multiplierComp?.resetMultiplier(false);
         const tweenSequence = tween(this.node)
             .call(() => {
                 if (multiplier) {
@@ -241,11 +242,9 @@ export default class Game extends GameComponent {
         if (animationHighlight) {
             this.multiplierComp?.renderMultiplier(result?.multiplier, false);
         }
-        if (animationHighlight && roundTime > settings.durations.wholeRound - 8) {
-            this.showResultAnim(result, roundId, result);
-        } else {
-            this.resultComp?.showResultNoAnim(result, roundId);
-        }
+        animationHighlight && roundTime > settings.durations.wholeRound - 8
+            ? this.showResultAnim(result, roundId, result)
+            : this.resultComp?.showResultNoAnim(result, roundId);
     }
 
     private convertToSevenUpDownResult(rawResult: gc.GameServiceMessage.TResult): ISevenUpDownResult {
