@@ -81,7 +81,7 @@ export class SevenUpDownResult extends Component {
     playHighLight() {
         const uiOpacity = this.resultBg.getComponent(UIOpacity);
         tween(this.resultBg.node)
-            .to(0.2, { scale: v3(1.08, 1.08, 1) })
+            .to(0.4, { scale: v3(1.08, 1.08, 1) })
             .call(() => {
                 uiOpacity.opacity = 255;
             })

@@ -704,7 +704,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 393,
+      "x": 383,
       "y": 0,
       "z": 0
     },
@@ -1017,7 +1017,7 @@
     "_alignFlags": 32,
     "_target": null,
     "_left": 0,
-    "_right": -5,
+    "_right": 5,
     "_top": 0,
     "_bottom": 0,
     "_horizontalCenter": 0,

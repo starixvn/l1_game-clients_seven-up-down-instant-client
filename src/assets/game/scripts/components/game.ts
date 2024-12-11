@@ -151,16 +151,16 @@ export default class Game extends GameComponent {
 
         await new Promise<void>((resolve) => {
             tween(this.resultNode)
-                .to(0.1, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
-                .to(0.1, {
+                .to(0.15, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
+                .to(0.15, {
                     position: new Vec3(this.positionShowDiceCup.x, this.positionShowDiceCup.y - 20, this.positionShowDiceCup.z),
-                    scale: new Vec3(0.98, 0.9, 1),
+                    scale: new Vec3(0.9, 0.88, 1),
                 })
-                .to(0.2, {
+                .to(0.15, {
                     position: this.positionShowDiceCup,
                     scale: this.scaleDiceCupSettlement,
                 })
-                .delay(0.2)
+                .delay(0.15)
                 .call(() => {
                     this.playStoppableSFX("dice_shake");
                     this.resultComp?.showResultAnim(prevResult, result, roundId); // Show the result animation
