@@ -1,4 +1,4 @@
-import { _decorator, Component, Sprite, SpriteAtlas, Label, tween } from "cc";
+import { _decorator, Component, Sprite, SpriteAtlas, Label, tween, UIOpacity } from "cc";
 const { ccclass, property } = _decorator;
 
 @ccclass
@@ -22,7 +22,8 @@ export default class SevenUpDownRoundResult extends Component {
     highlight: Sprite = null;
 
     onLoad() {
-        tween(this.highlight.node)
+        const uiOpacity = this.highlight.getComponent(UIOpacity)
+        tween(uiOpacity)
             .repeatForever(
                 tween()
                     .to(0.4, { opacity: 150 }, { easing: "cubicIn" })
