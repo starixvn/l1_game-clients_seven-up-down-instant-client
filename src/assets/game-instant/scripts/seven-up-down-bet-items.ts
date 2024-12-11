@@ -7,25 +7,6 @@ const { ccclass } = _decorator;
 
 @ccclass
 export default class SevenUpDownBetItems extends BetItems {
-    @render(gc.RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
-    async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
-        if (!firstJoinGameHistory) return;
-
-        const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
-        if (!lastRound || roundTime <= 0) return;
-        const { settlementResult } = lastRound;
-        if (animationHighlight && roundTime > 25) {
-            setTimeout(() => {
-                this.betItemComponents.forEach((betItem) => {
-                    const choice = betItem.node.name;
-                    betItem.handleHighlightAnim(this.isWinning(+settlementResult?.[choice]));
-                });
-            }, 3000);
-        } else {
-            this.showHighlightStatic(lastRound.settlementResult);
-        }
-    }
-
     @render(gc.Rounds.RoundTimeStore, (store) => store.isStartRound)
     async handleStartRound(isStartRound: boolean) {
         if (isStartRound) {
@@ -37,5 +18,12 @@ export default class SevenUpDownBetItems extends BetItems {
         if (staticHighlight || !animationHighlight) {
             this.showHighlightStatic(roundHistory.settlementResult);
         }
+    }
+
+    highlightBetItems(settlementResult: any) {
+        this.betItemComponents.forEach((betItem) => {
+            const choice = betItem.node.name;
+            betItem.handleHighlightAnim(this.isWinning(+settlementResult?.[choice]));
+        });
     }
 }

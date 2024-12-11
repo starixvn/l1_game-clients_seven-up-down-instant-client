@@ -11,7 +11,7 @@ export default class SevenUpDownMultiplier extends ObserverComponent {
     @property(Node)
     listMultiplier: Node[] = [];
     private multiplierAnim: SevenUpDownMultiplierChoice = null;
-    multipliersConfigs = [];
+    multipliersConfigs = null;
 
     onEnable() {
         this.resetMultiplier(false);
@@ -42,6 +42,7 @@ export default class SevenUpDownMultiplier extends ObserverComponent {
         this.multiplierAnim.multiplierValue = multiplier?.value;
         this.multiplierAnim.listMultiplierOrigin = this.multipliersConfigs;
         choice.active = true;
-        this.multiplierAnim.showMultiplier(animated);
+        console.log("renderMultiplier", this.multipliersConfigs);
+        this.multiplierAnim.showMultiplier(this.multipliersConfigs ? animated : false);
     }
 }

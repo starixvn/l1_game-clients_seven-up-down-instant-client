@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, _decorator, sp, Tween, tween, v3, Vec3, UIOpacity } from "cc";
+import { Label, Node, _decorator, sp, Tween, tween, Vec3 } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
 import Observer from "observer";
@@ -11,6 +11,7 @@ import { SevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-r
 import { ISevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-choices";
 import SevenUpDownMultiplier from "../../../game-instant/scripts/multiplier/seven-up-down-multiplier";
 import { findWinningChoice } from "../../../game-instant/scripts/seven-up-down-helper";
+import SevenUpDownBetItems from "../../../game-instant/scripts/seven-up-down-bet-items";
 
 const { Rounds, Translator, RoundHistories, UserSettings } = gc;
 
@@ -49,16 +50,22 @@ export default class Game extends GameComponent {
     @property(Vec3)
     scaleDiceCupDefault: Vec3 = null;
 
+    @property({ type: Node })
+    betItemsNode: Node = null;
+
     public resultComp: SevenUpDownResult = null;
+
+    betItemsComp: SevenUpDownBetItems = null;
 
     override namespace = settings.name;
     override containerOptions = containerOptions;
     isLoading = true;
     isFinishDiceAnim = false;
-    private readonly crowdSounds = "crowd-game";
+
+    isPlayAnimSettlement = false;
     private readonly SHOW_EXTRA_PAY_DURATION = 2.07;
     private readonly SHOW_MULTIPLIER_DURATION = 3.66;
-    private readonly TOTAL_SHOW_MULTIPLIER_DURATION = 6;
+    private readonly TOTAL_SHOW_ANIM_DURATION = 8;
 
     multiplierTween: Tween<Node> | null = null;
     protected clientRoundId = -1;
@@ -78,6 +85,7 @@ export default class Game extends GameComponent {
 
     fetchComponents() {
         this.resultComp = this.resultNode?.getComponent(SevenUpDownResult);
+        this.betItemsComp = this.betItemsNode.getComponent(SevenUpDownBetItems);
     }
 
     @render(Rounds.RoundStore, (store) => store.clientRoundId)
@@ -106,11 +114,13 @@ export default class Game extends GameComponent {
     }
 
     async handleAnimResult(result: ISevenUpDownResult, roundId: number, settlementResult: any): Promise<void> {
+        this.isPlayAnimSettlement = true;
         const { multiplier } = result;
         const extraPayMessageDelayTime = multiplier ? this.SHOW_EXTRA_PAY_DURATION : 0;
         const multiplierDelayTime = multiplier ? this.SHOW_MULTIPLIER_DURATION : 0;
         this.multiplierTween?.stop();
         this.multiplierComp?.resetMultiplier(false);
+        this.betItemsComp.clearHighlightAnim();
         const tweenSequence = tween(this.node)
             .call(() => {
                 if (multiplier) {
@@ -131,25 +141,10 @@ export default class Game extends GameComponent {
         await this.showResultAnim(result, roundId, settlementResult);
     }
 
-    private runTweenAsPromise(tweenObj: Tween<any>): Promise<void> {
-        return new Promise((resolve) => {
-            tweenObj.call(resolve).start();
-        });
-    }
-
-    @render(gc.Settlements.SettlementStore, (store) => store.roundId)
-    public updateLatestRoundId(roundId: number) {
-        this.roundId = roundId;
-    }
-
-    @render(gc.RoundHistories.RoundHistoryStore, (store) => store.getLastRound())
-    public setLastRound(round: gc.RoundHistories.RoundHistory) {
-        this.lastRound = round;
-    }
-
     async showResultAnim(result: gc.GameServiceMessage.TResult, roundId: number, settlementResult): Promise<void> {
         const prevResult = this.lastRound?.result;
-
+        this.resultComp.setResultTextVisibility(false);
+        this.betItemsComp.clearHighlightAnim();
         await new Promise<void>((resolve) => {
             tween(this.resultNode)
                 .to(0.15, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
@@ -181,6 +176,22 @@ export default class Game extends GameComponent {
         });
 
         this.isFinishDiceAnim = true;
+    }
+
+    private runTweenAsPromise(tweenObj: Tween<any>): Promise<void> {
+        return new Promise((resolve) => {
+            tweenObj.call(resolve).start();
+        });
+    }
+
+    @render(gc.Settlements.SettlementStore, (store) => store.roundId)
+    public updateLatestRoundId(roundId: number) {
+        this.roundId = roundId;
+    }
+
+    @render(gc.RoundHistories.RoundHistoryStore, (store) => store.getLastRound())
+    public setLastRound(round: gc.RoundHistories.RoundHistory) {
+        this.lastRound = round;
     }
 
     @render(Rounds.RoundTimeStore, (store) => store.isStartPlacingBet)
@@ -220,7 +231,7 @@ export default class Game extends GameComponent {
             this.resultComp?.setResultTextVisibility(false);
             this.multiplierTween?.stop();
             this.spineExtraPaid.node.active = false;
-            this.isFinishDiceAnim = false;
+            this.isFinishDiceAnim = this.isPlayAnimSettlement = false;
             this.resetMultiplierAndResultText(true);
         }
     }
@@ -232,19 +243,27 @@ export default class Game extends GameComponent {
 
     @render(RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
     async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
-        if (!firstJoinGameHistory) return;
+        if (!firstJoinGameHistory) return null;
         this.resultComp?.showResultNoAnim(this.histories[1]?.result, this.histories[1]?.roundId);
         const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
-        if (!lastRound) return;
+        if (!lastRound || roundTime < 0) return null;
 
-        const { result: rawResult, roundId } = lastRound;
+        const { result: rawResult, roundId, settlementResult } = lastRound;
         const result = this.convertToSevenUpDownResult(rawResult);
-        if (animationHighlight) {
+
+        // Show static result and multiplier if animation highlight is enabled
+        if (animationHighlight && !this.isPlayAnimSettlement) {
+            this.resultComp?.showResultText(result);
             this.multiplierComp?.renderMultiplier(result?.multiplier, false);
+            this.betItemsComp.highlightBetItems(settlementResult);
         }
-        animationHighlight && roundTime > settings.durations.wholeRound - 8
-            ? this.showResultAnim(result, roundId, result)
-            : this.resultComp?.showResultNoAnim(result, roundId);
+        // Handle animations or static display
+        if (animationHighlight && roundTime > settings.durations.wholeRound - this.TOTAL_SHOW_ANIM_DURATION && !this.isPlayAnimSettlement) {
+            await this.showResultAnim(result, roundId, result);
+            this.betItemsComp.highlightBetItems(settlementResult);
+        } else {
+            this.resultComp?.showResultNoAnim(result, roundId);
+        }
     }
 
     private convertToSevenUpDownResult(rawResult: gc.GameServiceMessage.TResult): ISevenUpDownResult {
