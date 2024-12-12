@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, Size, CCFloat, ScrollView, v2, instantiate, v3, UITransform } from "cc";
+import { _decorator, CCFloat, Component, instantiate, Node, ScrollView, Size, UITransform, v2, v3 } from "cc";
 import { BlinkAnimation } from "../../../../extensions/shared-components/assets/shared/common-components/blink-animation/blink-animation";
 const { ccclass, property } = _decorator;
 
@@ -108,7 +108,7 @@ export default class SevenUpDownStatistic extends Component {
 
     protected handleDotAction(dot: any, start: any, col: number, row: number, maxX: number) {
         dot.active = true;
-        dot.position = v2(start.x + col * this.itemSize.width, start.y - row * this.itemSize.height);
+        dot.position = v3(start.x + col * this.itemSize.width, start.y - row * this.itemSize.height, 0);
         maxX = Math.max(maxX, dot.position.x);
         this.content.addChild(dot);
         this.dots.push(dot);
@@ -122,7 +122,7 @@ export default class SevenUpDownStatistic extends Component {
         const uiNode = this.node.getComponent(UITransform);
         uiContent.width = Math.max(maxX + this.itemSize.width / 2, uiNode.width) + 2 * this.padding.width;
 
-        this.content.position = v3(-uiContent.width, this.content.position.y, this.content.position.z);
+        // this.content.position = v3(-uiContent.width, this.content.position.y, this.content.position.z);
     }
 
     protected addNextMark(rowMax, row, col, nextCol, start) {
