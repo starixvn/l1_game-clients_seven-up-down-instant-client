@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, instantiate, Node, ScrollView, Size, UITransform, v2, v3 } from "cc";
+import { _decorator, CCFloat, Component, instantiate, Node, ScrollView, Size, UITransform, v3 } from "cc";
 import { BlinkAnimation } from "../../../../extensions/shared-components/assets/shared/common-components/blink-animation/blink-animation";
 const { ccclass, property } = _decorator;
 
@@ -69,7 +69,7 @@ export default class SevenUpDownStatistic extends Component {
         let previousResult = undefined;
         const rowMax = {};
         let colMax = 0;
-        const start = v2(-this.itemSize.width / 2, -this.itemSize.height / 2 - this.padding.height);
+        const start = v3(-this.itemSize.width / 2, -this.itemSize.height / 2 - this.padding.height);
         results.forEach((result, i) => {
             if (result === previousResult) {
                 const max = rowMax.hasOwnProperty(col) ? rowMax[col] : this.rowMax;
@@ -122,7 +122,7 @@ export default class SevenUpDownStatistic extends Component {
         const uiNode = this.node.getComponent(UITransform);
         uiContent.width = Math.max(maxX + this.itemSize.width / 2, uiNode.width) + 2 * this.padding.width;
 
-        // this.content.position = v3(-uiContent.width, this.content.position.y, this.content.position.z);
+        this.content.position = v3(-uiContent.width, this.content.position.y, this.content.position.z);
     }
 
     protected addNextMark(rowMax, row, col, nextCol, start) {
