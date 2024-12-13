@@ -1939,7 +1939,7 @@
     "itemSize": {
       "__type__": "cc.Size",
       "width": 37,
-      "height": 37
+      "height": 36
     },
     "padding": {
       "__type__": "cc.Size",

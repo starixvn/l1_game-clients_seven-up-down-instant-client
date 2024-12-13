@@ -1,9 +1,9 @@
-import { _decorator, Prefab, instantiate, SpriteFrame, Node, Layout, Widget, ScrollView, UITransform } from "cc";
-import Observer from "observer";
 import gc from "@sg/game-client-base";
+import { _decorator, instantiate, Layout, Node, Prefab, ScrollView, SpriteFrame, Widget } from "cc";
+import Observer from "observer";
 import { ObserverComponent } from "../../../../extensions/shared-components/assets/shared/common-components/observer-component/scripts/observer-component";
-import SevenUpDownRoundResult from "./seven-up-down-round-result";
 import { findWinningChoice } from "../seven-up-down-helper";
+import SevenUpDownRoundResult from "./seven-up-down-round-result";
 import SevenUpDownStatistic from "./seven-up-down-statistic";
 const { ccclass, property } = _decorator;
 const { render } = Observer;
@@ -68,6 +68,11 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
             });
             this.logView.setData(statsData);
         }
+    }
+
+    @render(gc.Rounds.RoundTimeStore, (store) => store.isLocking)
+    showNextMark(isLocking: boolean) {
+        this.logView.checkShowNext = () => isLocking;
     }
 
     changeDisplayMode() {

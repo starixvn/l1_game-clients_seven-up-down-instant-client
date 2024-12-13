@@ -25,7 +25,7 @@ export default class SevenUpDownStatistic extends Component {
     public nextMark: Node = null;
     protected dots: Node[] = [];
     protected isHideNextDot = false;
-    protected checkShowNext = () => false;
+    checkShowNext = () => false;
     _managedByParent = false;
     get managedByParent(): boolean {
         return this._managedByParent;
