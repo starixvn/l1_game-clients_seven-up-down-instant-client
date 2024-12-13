@@ -166,8 +166,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.6,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_mobility": 0,
@@ -244,8 +244,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 94.65549477233229,
-      "height": 90.72
+      "width": 94.66149825084058,
+      "height": 90.72000000000001
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -283,7 +283,7 @@
     "_string": "46%",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 53.075609756097556,
+    "_actualFontSize": 63.39268292682927,
     "_fontSize": 47,
     "_fontFamily": "Arial",
     "_lineHeight": 72,
@@ -445,8 +445,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.6,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_mobility": 0,
@@ -523,8 +523,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 94.65549477233229,
-      "height": 90.72
+      "width": 94.66149825084058,
+      "height": 90.72000000000001
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -562,7 +562,7 @@
     "_string": "54%",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 53.075609756097556,
+    "_actualFontSize": 63.39268292682927,
     "_fontSize": 47,
     "_fontFamily": "Arial",
     "_lineHeight": 72,
@@ -724,8 +724,8 @@
     },
     "_lscale": {
       "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.6,
+      "x": 0.5,
+      "y": 0.5,
       "z": 1
     },
     "_mobility": 0,
@@ -802,8 +802,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 94.65549477233229,
-      "height": 90.72
+      "width": 94.66149825084058,
+      "height": 90.72000000000001
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -841,7 +841,7 @@
     "_string": "54%",
     "_horizontalAlign": 0,
     "_verticalAlign": 1,
-    "_actualFontSize": 53.075609756097556,
+    "_actualFontSize": 63.39268292682927,
     "_fontSize": 47,
     "_fontFamily": "Arial",
     "_lineHeight": 72,

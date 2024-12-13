@@ -100,7 +100,7 @@
     "_lscale": {
       "__type__": "cc.Vec3",
       "x": 1,
-      "y": 1,
+      "y": 0.9,
       "z": 1
     },
     "_mobility": 0,
@@ -198,12 +198,12 @@
     "__prefab": {
       "__id__": 8
     },
-    "_alignFlags": 45,
+    "_alignFlags": 18,
     "_target": null,
-    "_left": 191,
-    "_right": 191,
-    "_top": -2.5,
-    "_bottom": -2.5,
+    "_left": 183,
+    "_right": 183,
+    "_top": -127,
+    "_bottom": -127,
     "_horizontalCenter": 0,
     "_verticalCenter": 0,
     "_isAbsLeft": true,
