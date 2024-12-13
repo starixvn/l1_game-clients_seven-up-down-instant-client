@@ -36,6 +36,8 @@ export class SevenUpDownResult extends Component {
     private readonly DICE_POSITION_NUMBER = 7;
     private readonly LOOP_NUMBER = 2;
     private readonly DICE_END_FRAME = 11;
+
+    private readonly DICE_VALUE = 6;
     RESULT_DURATION = 1.4;
 
     onLoad() {
@@ -155,7 +157,7 @@ export class SevenUpDownResult extends Component {
 
     private setResultDiceFrames(prevResult: gc.GameServiceMessage.TResult, result: gc.GameServiceMessage.TResult) {
         for (let i = 0; i < this.dicesComponent.length; i++) {
-            const startPos = prevResult[`dice${i + 1}`];
+            const startPos = prevResult?.[`dice${i + 1}`] ?? this.getRandomNumber(this.DICE_VALUE);
             const endPos = result[`dice${i + 1}`];
             const files = [`start-${startPos}`, `loop-${this.getRandomNumber(this.LOOP_NUMBER)}`, `end-${endPos}`];
 
