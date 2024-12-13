@@ -35,5 +35,6 @@
         background-image: url("./portrait_game_background.png?v=4") !important;
         left: 0px !important;
         top: -1vh !important;
+        transform: scale(1);
     }
 }
