@@ -119,8 +119,7 @@ export default class SevenUpDownStatistic extends Component {
     protected updateContentPosition(maxX: number) {
         maxX = Math.max(maxX, this.nextMark.position.x);
         const uiContent = this.content.getComponent(UITransform);
-        const uiNode = this.node.getComponent(UITransform);
-        uiContent.width = Math.max(maxX + this.itemSize.width / 2, uiNode.width) + 2 * this.padding.width;
+        uiContent.width = Math.max(maxX + this.itemSize.width / 2, uiContent.width) + 2 * this.padding.width;
 
         this.content.position = v3(-uiContent.width, this.content.position.y, this.content.position.z);
     }
@@ -148,6 +147,9 @@ export default class SevenUpDownStatistic extends Component {
             return;
         }
         if (this.nextMark && this.nextMark.isValid) {
+            if (this.nextMark.active !== this.checkShowNext()) {
+                console.log("change active ", this.checkShowNext());
+            }
             this.nextMark.active = this.checkShowNext();
         }
     }

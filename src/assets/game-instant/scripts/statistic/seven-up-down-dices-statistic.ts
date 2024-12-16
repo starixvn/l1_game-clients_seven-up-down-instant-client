@@ -72,7 +72,14 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
 
     @render(gc.Rounds.RoundTimeStore, (store) => store.isLocking)
     showNextMark(isLocking: boolean) {
-        this.logView.checkShowNext = () => isLocking;
+        isLocking && (this.logView.checkShowNext = () => true);
+    }
+
+    @render(gc.Settlements.SettlementStore, (store) => store.isFinishedShowResult)
+    public hideBlinkNode(isFinishedShowResult: boolean) {
+        if (isFinishedShowResult) {
+            this.logView.checkShowNext = () => false;
+        }
     }
 
     changeDisplayMode() {
