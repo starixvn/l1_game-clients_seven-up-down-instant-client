@@ -35,7 +35,7 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
         this.renderLogView(dataLogs);
         this.roundResultContainer.getComponent(Layout).updateLayout();
         this.roundResultContainer.getComponent(Widget).updateAlignment();
-        this.statsScrollView.getComponent(ScrollView).scrollToRight(0.2);
+        this.statsScrollView.getComponent(ScrollView).scrollToRight();
     }
 
     updateRoundResult(dataLogs: any[]) {
