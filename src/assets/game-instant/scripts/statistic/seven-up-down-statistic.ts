@@ -22,6 +22,9 @@ export default class SevenUpDownStatistic extends Component {
     @property(Size)
     padding: Size = new Size(2, 2);
 
+    @property(Node)
+    scoreboard: Node = null;
+
     public nextMark: Node = null;
     protected dots: Node[] = [];
     protected isHideNextDot = false;
@@ -41,13 +44,17 @@ export default class SevenUpDownStatistic extends Component {
     set nextItemActive(value: boolean) {
         this._nextItemActive = value;
         this.updateDisplayNextItem();
-        this.node.getComponent(ScrollView).scrollToRight();
+        this.scoreboard.getComponent(ScrollView).scrollToRight();
     }
 
     updateDisplayNextItem() {
         if (this.nextMark && this.nextMark.isValid) {
             this.nextMark.active = this.nextItemActive;
         }
+    }
+
+    protected onEnable(): void {
+        this.scoreboard.getComponent(ScrollView).scrollToRight();
     }
 
     init(condition: () => boolean) {

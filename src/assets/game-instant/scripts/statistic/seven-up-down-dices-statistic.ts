@@ -87,5 +87,8 @@ export default class SevenUpDownDicesStatistic extends ObserverComponent {
         this.diceStatisticNode.active = this.isShowDiceView;
         this.statsScrollView.active = this.isShowDiceView;
         this.logView.node.active = !this.isShowDiceView;
+        if (this.isShowDiceView) {
+            this.statsScrollView.getComponent(ScrollView).scrollToRight();
+        }
     }
 }
