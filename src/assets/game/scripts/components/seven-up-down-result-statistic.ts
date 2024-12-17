@@ -22,4 +22,15 @@ export class SevenUpDownResultStatistic extends ResultStatistic {
             return settlementResult;
         }, {});
     }
+
+    protected setData(statistic: Object) {
+        this.statisticItems?.forEach((item) => {
+            const percentItem = statistic[item.value];
+            if (item.label && percentItem) {
+                item.label.string = percentItem.toString();
+            } else {
+                item.label.string = "0%";
+            }
+        });
+    }
 }
