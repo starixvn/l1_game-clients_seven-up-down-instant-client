@@ -13,7 +13,7 @@ import SevenUpDownMultiplier from "../../../game-instant/scripts/multiplier/seve
 import { findWinningChoice } from "../../../game-instant/scripts/seven-up-down-helper";
 import SevenUpDownBetItems from "../../../game-instant/scripts/seven-up-down-bet-items";
 
-const { Rounds, Translator, RoundHistories, UserSettings } = gc;
+const { Rounds, Translator, RoundHistories, UserSettings, DisabledGame } = gc;
 
 startGame(settings.name, containerOptions, siteConfigs, settings.namespaces);
 
@@ -57,6 +57,8 @@ export default class Game extends GameComponent {
 
     betItemsComp: SevenUpDownBetItems = null;
 
+    disabledGame: boolean = null;
+
     override namespace = settings.name;
     override containerOptions = containerOptions;
     isLoading = true;
@@ -86,6 +88,11 @@ export default class Game extends GameComponent {
     fetchComponents() {
         this.resultComp = this.resultNode?.getComponent(SevenUpDownResult);
         this.betItemsComp = this.betItemsNode.getComponent(SevenUpDownBetItems);
+    }
+
+    @render(DisabledGame.DisabledGameStore, (store) => store.disabled)
+    storeDisabled(disabled: boolean) {
+        this.disabledGame = disabled;
     }
 
     @render(Rounds.RoundStore, (store) => store.clientRoundId)
@@ -250,7 +257,11 @@ export default class Game extends GameComponent {
 
         const { result: rawResult, roundId, settlementResult } = lastRound;
         const result = this.convertToSevenUpDownResult(rawResult);
-
+        if (this.disabledGame) {
+            this.resultComp?.showResultNoAnim(result, roundId);
+            this.resultComp?.showResultText(result);
+            return null;
+        }
         // Show static result and multiplier if animation highlight is enabled
         if (animationHighlight && !this.isPlayAnimSettlement) {
             this.resultComp?.showResultText(result);
