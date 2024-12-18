@@ -196,7 +196,7 @@ export const languages = {
     "7Up7Down": {
         "7_win": "7 ชนะ",
         "down_win": "ต่ำชนะ",
-        "game_icon_name": "7 สูง 7 ต่ำ",
+        "game_icon_name": "7 ขึ้น 7 ลง",
         "game_name": "7 ขึ้น 7 ลง",
         "glossary_7": "7",
         "glossary_down": "ลง",
