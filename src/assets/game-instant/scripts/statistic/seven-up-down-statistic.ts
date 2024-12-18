@@ -62,7 +62,6 @@ export default class SevenUpDownStatistic extends Component {
     }
 
     public setData(results: number[]) {
-        console.log("set Data", results);
         this.dots.forEach((dot) => {
             dot.removeFromParent();
             dot.destroy();
