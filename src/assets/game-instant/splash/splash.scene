@@ -224,7 +224,7 @@
       "__id__": 5
     },
     "asset": {
-      "__uuid__": "cd82133c-8549-4ecc-90ab-a9690c6d671c",
+      "__uuid__": "d47a05ac-ef85-4cd0-a31c-c37034f9823a",
       "__expectedType__": "cc.Prefab"
     },
     "fileId": "f8GJyqCgdAoauNujqlQUGg",
@@ -236,7 +236,7 @@
   },
   {
     "__type__": "cc.PrefabInstance",
-    "fileId": "64d4mmppJC4J9pMmHPfcpF",
+    "fileId": "4dC/OCml9DRIli2EP8xRcZ",
     "prefabRootNode": null,
     "mountedChildren": [],
     "mountedComponents": [],

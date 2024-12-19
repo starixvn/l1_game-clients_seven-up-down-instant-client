@@ -1,21 +1,21 @@
 import gc from "@sg/game-client-base";
 import { LogStore } from "db://shared-components/game/scripts/stores/log-store";
 import { sharedContainer } from "../../scripts/shared-container";
-import * as MatchInfoFeature from "./match-config/index";
-import { FootballCoinTossNoticeHandlers } from "./handlers/notice-handler";
-import { FootballCoinTossRFinishedShowResult } from "./handlers/football-coin-toss-finish-handlers";
+import * as SevenUpDownGameConfigFeature from "../../game-instant/scripts/game-config";
 
 export const settings = {
-    id: 93,
-    name: "FootballCoinToss",
+    id: 103,
+    name: "SevenUpDown",
+    namespaces: ["7Up7Down"],
     durations: {
-        wholeRound: 29,
+        wholeRound: 33,
         lockingBet: 3,
         placingBet: 20,
-        generatingResult: 2,
-        startRound: 3,
+        generatingResult: 11,
+        startRound: 1,
     },
     numberOfRoundHistory: 100,
+    isMiniGame: true
 };
 
 export const containerOptions: gc.IContainerOptions = {
@@ -23,8 +23,6 @@ export const containerOptions: gc.IContainerOptions = {
     onContainerCreated: (container) => {
         container.bind(gc.GameConfigs.GameSetting).toConstantValue(settings);
         container.bind(LogStore).to(LogStore);
-        container.bind(gc.Notices.NoticeHandlers).to(FootballCoinTossNoticeHandlers);
-        container.bind(gc.Settlements.SettlementUIHandlers.FinishedShowResult).to(FootballCoinTossRFinishedShowResult)
     },
-    features: [MatchInfoFeature, gc.RoundBasePF, ...gc.defaultFeatures],
+    features: [SevenUpDownGameConfigFeature, gc.RoundBasePF, ...gc.defaultFeatures],
 };

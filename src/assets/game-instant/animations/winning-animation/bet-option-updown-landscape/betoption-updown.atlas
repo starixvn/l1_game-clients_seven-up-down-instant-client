@@ -1,0 +1,20 @@
+
+betoption-updown.png
+size: 512,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+betoptionup-bghighlight
+  rotate: true
+  xy: 2, 2
+  size: 247, 269
+  orig: 247, 269
+  offset: 0, 0
+  index: -1
+vfx-star
+  rotate: false
+  xy: 273, 209
+  size: 37, 40
+  orig: 37, 40
+  offset: 0, 0
+  index: -1

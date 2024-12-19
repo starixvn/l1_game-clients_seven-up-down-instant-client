@@ -147,7 +147,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -1.1368683772161603e-13,
-      "y": -13,
+      "y": -14,
       "z": 0
     },
     "_lrot": {
@@ -187,8 +187,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 46,
-      "height": 37.8
+      "width": 28.162572873076407,
+      "height": 37.79999999999999
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -218,15 +218,15 @@
     "_dstBlendFactor": 4,
     "_color": {
       "__type__": "cc.Color",
-      "r": 213,
-      "g": 37,
-      "b": 21,
+      "r": 14,
+      "g": 18,
+      "b": 25,
       "a": 255
     },
-    "_string": "拜登",
+    "_string": "ขึ้น",
     "_horizontalAlign": 2,
     "_verticalAlign": 1,
-    "_actualFontSize": 28.75,
+    "_actualFontSize": 25.973170731707313,
     "_fontSize": 23,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -286,7 +286,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -1.1368683772161603e-13,
-      "y": 12.715199999999982,
+      "y": 16.71519999999998,
       "z": 0
     },
     "_lrot": {
@@ -326,7 +326,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 105.66650390625,
+      "width": 105.64580666066247,
       "height": 37.8
     },
     "_anchorPoint": {
@@ -365,7 +365,7 @@
     "_string": "#12345678",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 26.25,
+    "_actualFontSize": 23.71463414634146,
     "_fontSize": 21,
     "_fontFamily": "Arial",
     "_lineHeight": 30,
@@ -416,7 +416,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 125,
-      "height": 60
+      "height": 70
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -511,7 +511,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": -20.959,
+      "y": -24.959,
       "z": 0
     },
     "_lrot": {
@@ -619,6 +619,8 @@
       "__id__": 0
     },
     "fileId": "65ChDJTBBIRZFYjWjal5LX",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {

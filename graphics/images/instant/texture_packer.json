@@ -9,7 +9,7 @@
                     "options": {
                         "params": ["--texture-format", "png"],
                         "sheet_extension": "png",
-                        "output_path": ["instant-main-altas"]
+                        "output_path": ["instant-main"]
                     }
                 }
             ]

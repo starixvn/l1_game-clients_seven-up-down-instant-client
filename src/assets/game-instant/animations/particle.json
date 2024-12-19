@@ -1,0 +1,137 @@
+{
+"skeleton": { "hash": "V7A5+GeSzuQGD5QZlw0HcZEZewI", "spine": "3.8.99" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "vfx", "parent": "root", "x": 0.92, "y": 0.07, "scaleX": 0.7, "scaleY": 0.7 }
+],
+"slots": [
+	{ "name": "scatter_vfx_c_00.jpg", "bone": "vfx", "blend": "additive" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"scatter_vfx_c_00.jpg": {
+				"scatter_vfx_c_00.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_01.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_02.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_03.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_04.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_05.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_06.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_07.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_08.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_09.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_10.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_11.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_12.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_13.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_14.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_15.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_16.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_17.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_18.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_19.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_20.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_21.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_22.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_23.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_24.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_25.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_26.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_27.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_28.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_29.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_30.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_31.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_32.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_33.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_34.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_35.jpg": { "width": 213, "height": 213 },
+				"scatter_vfx_c_36.jpg": { "width": 213, "height": 213 }
+			}
+		}
+	}
+],
+"animations": {
+	"show": {
+		"slots": {
+			"scatter_vfx_c_00.jpg": {
+				"color": [
+					{ "color": "ffffff00" },
+					{ "time": 0.1667, "color": "ffffffff" },
+					{ "time": 4, "color": "ffffffa0", "curve": 0.25, "c3": 0.75 },
+					{ "time": 4.4, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0.1667, "name": "scatter_vfx_c_00.jpg" },
+					{ "time": 0.2333, "name": "scatter_vfx_c_01.jpg" },
+					{ "time": 0.3, "name": "scatter_vfx_c_02.jpg" },
+					{ "time": 0.3667, "name": "scatter_vfx_c_03.jpg" },
+					{ "time": 0.4333, "name": "scatter_vfx_c_04.jpg" },
+					{ "time": 0.5, "name": "scatter_vfx_c_05.jpg" },
+					{ "time": 0.5667, "name": "scatter_vfx_c_06.jpg" },
+					{ "time": 0.6333, "name": "scatter_vfx_c_07.jpg" },
+					{ "time": 0.7, "name": "scatter_vfx_c_08.jpg" },
+					{ "time": 0.7667, "name": "scatter_vfx_c_09.jpg" },
+					{ "time": 0.8333, "name": "scatter_vfx_c_10.jpg" },
+					{ "time": 0.9, "name": "scatter_vfx_c_11.jpg" },
+					{ "time": 0.9667, "name": "scatter_vfx_c_12.jpg" },
+					{ "time": 1.0333, "name": "scatter_vfx_c_13.jpg" },
+					{ "time": 1.1, "name": "scatter_vfx_c_14.jpg" },
+					{ "time": 1.1667, "name": "scatter_vfx_c_15.jpg" },
+					{ "time": 1.2333, "name": "scatter_vfx_c_16.jpg" },
+					{ "time": 1.3, "name": "scatter_vfx_c_17.jpg" },
+					{ "time": 1.3667, "name": "scatter_vfx_c_18.jpg" },
+					{ "time": 1.4333, "name": "scatter_vfx_c_19.jpg" },
+					{ "time": 1.5, "name": "scatter_vfx_c_20.jpg" },
+					{ "time": 1.5667, "name": "scatter_vfx_c_21.jpg" },
+					{ "time": 1.6333, "name": "scatter_vfx_c_22.jpg" },
+					{ "time": 1.7, "name": "scatter_vfx_c_23.jpg" },
+					{ "time": 1.7667, "name": "scatter_vfx_c_24.jpg" },
+					{ "time": 1.8333, "name": "scatter_vfx_c_25.jpg" },
+					{ "time": 1.9, "name": "scatter_vfx_c_26.jpg" },
+					{ "time": 1.9667, "name": "scatter_vfx_c_27.jpg" },
+					{ "time": 2.0333, "name": "scatter_vfx_c_28.jpg" },
+					{ "time": 2.1, "name": "scatter_vfx_c_29.jpg" },
+					{ "time": 2.1667, "name": "scatter_vfx_c_30.jpg" },
+					{ "time": 2.2333, "name": "scatter_vfx_c_31.jpg" },
+					{ "time": 2.3, "name": "scatter_vfx_c_32.jpg" },
+					{ "time": 2.3667, "name": "scatter_vfx_c_33.jpg" },
+					{ "time": 2.4333, "name": "scatter_vfx_c_34.jpg" },
+					{ "time": 2.5, "name": "scatter_vfx_c_35.jpg" },
+					{ "time": 2.5667, "name": "scatter_vfx_c_36.jpg" },
+					{ "time": 2.6333, "name": "scatter_vfx_c_00.jpg" },
+					{ "time": 2.7, "name": "scatter_vfx_c_01.jpg" },
+					{ "time": 2.7667, "name": "scatter_vfx_c_02.jpg" },
+					{ "time": 2.8333, "name": "scatter_vfx_c_03.jpg" },
+					{ "time": 2.9, "name": "scatter_vfx_c_04.jpg" },
+					{ "time": 2.9667, "name": "scatter_vfx_c_05.jpg" },
+					{ "time": 3.0333, "name": "scatter_vfx_c_06.jpg" },
+					{ "time": 3.1, "name": "scatter_vfx_c_07.jpg" },
+					{ "time": 3.1667, "name": "scatter_vfx_c_08.jpg" },
+					{ "time": 3.2333, "name": "scatter_vfx_c_09.jpg" },
+					{ "time": 3.3, "name": "scatter_vfx_c_10.jpg" },
+					{ "time": 3.3667, "name": "scatter_vfx_c_11.jpg" },
+					{ "time": 3.4333, "name": "scatter_vfx_c_12.jpg" },
+					{ "time": 3.5, "name": "scatter_vfx_c_13.jpg" },
+					{ "time": 3.5667, "name": "scatter_vfx_c_14.jpg" },
+					{ "time": 3.6333, "name": "scatter_vfx_c_15.jpg" },
+					{ "time": 3.7, "name": "scatter_vfx_c_16.jpg" },
+					{ "time": 3.7667, "name": "scatter_vfx_c_17.jpg" },
+					{ "time": 3.8333, "name": "scatter_vfx_c_18.jpg" },
+					{ "time": 3.9, "name": "scatter_vfx_c_20.jpg" },
+					{ "time": 3.9667, "name": "scatter_vfx_c_21.jpg" },
+					{ "time": 4.0333, "name": "scatter_vfx_c_22.jpg" },
+					{ "time": 4.1, "name": "scatter_vfx_c_23.jpg" },
+					{ "time": 4.1667, "name": "scatter_vfx_c_24.jpg" },
+					{ "time": 4.2333, "name": "scatter_vfx_c_25.jpg" },
+					{ "time": 4.3, "name": "scatter_vfx_c_26.jpg" },
+					{ "time": 4.3667, "name": "scatter_vfx_c_27.jpg" },
+					{ "time": 4.4, "name": "scatter_vfx_c_28.jpg" }
+				]
+			}
+		}
+	}
+}
+}

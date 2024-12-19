@@ -6,11 +6,11 @@ export namespace GameServiceMessage {
         static eventName = "match";
     }
 
-    export class LastMatchConfig {
-        home: string;
-        away: string;
-        roundId: number;
+    export class SevenUpDownGameConfigs {
+        multipliers: Array<number>;
 
-        static eventName = "roundHistory";
+        static eventName = "gameConfigs";
     }
+
+    export const signedIn = "signedIn";
 }

@@ -1,0 +1,27 @@
+
+multiplier.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+frame-circle
+  rotate: true
+  xy: 265, 100
+  size: 70, 52
+  orig: 70, 52
+  offset: 0, 0
+  index: -1
+frame-circle-light
+  rotate: true
+  xy: 265, 172
+  size: 88, 65
+  orig: 88, 65
+  offset: 0, 0
+  index: -1
+light-halo
+  rotate: false
+  xy: 2, 2
+  size: 261, 258
+  orig: 261, 258
+  offset: 0, 0
+  index: -1

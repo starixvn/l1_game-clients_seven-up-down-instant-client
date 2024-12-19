@@ -1,33 +1,24 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, _decorator, log, sp } from "cc";
+import { Label, Node, _decorator, sp, Tween, tween, Vec3 } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
 import Observer from "observer";
-import { AudioUtils } from "../../../../extensions/shared-components/assets/game/audios/utils";
-import { bundleManager } from "../../../../extensions/shared-components/assets/shared/common-components/bundle-magager/bundle-manager";
-import { FunctionUtils } from "../../../../extensions/shared-components/assets/shared/utils";
+import { AnimationUtils } from "../../../../extensions/shared-components/assets/shared/utils";
 import { siteConfigs } from "../../../scripts/site-configs";
-import { GameServiceMessage } from "../game-messages";
 import { containerOptions, settings } from "../game-settings";
-import { MatchConfigHandler, MatchConfigStore } from "../match-config";
 import "./../../../resources/i18n";
-import { CoinTossWinningResult } from "./coin-toss-winning-result";
-import { FlipCoin } from "./flip-coin";
-import { HighlightResult } from "./highlight-result";
+import { SevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-result";
+import { ISevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-choices";
+import SevenUpDownMultiplier from "../../../game-instant/scripts/multiplier/seven-up-down-multiplier";
+import { findWinningChoice } from "../../../game-instant/scripts/seven-up-down-helper";
+import SevenUpDownBetItems from "../../../game-instant/scripts/seven-up-down-bet-items";
 
-const { Rounds, Translator, RoundHistories, UserSettings } = gc;
+const { Rounds, Translator, RoundHistories, UserSettings, DisabledGame } = gc;
 
-startGame(settings.name, containerOptions, siteConfigs);
+startGame(settings.name, containerOptions, siteConfigs, settings.namespaces);
 
 const { ccclass, property } = _decorator;
 const { observer, render, handle } = Observer;
-
-type ResultSoundInfo = {
-    soundId: string;
-    duration: number;
-};
-
-export const HOME_AWAY_NAME = "HOME-AWAY";
 
 @ccclass
 @observer(settings.name)
@@ -39,45 +30,69 @@ export default class Game extends GameComponent {
     lblMaxBet: Label = null;
 
     @property({ type: Node })
-    winningResultNode: Node = null;
+    resultNode: Node = null;
+
+    @property(SevenUpDownMultiplier)
+    multiplierComp: SevenUpDownMultiplier = null;
+
+    @property(sp.Skeleton)
+    spineExtraPaid: sp.Skeleton = null;
+
+    @property(Vec3)
+    positionDiceCupDefault: Vec3 = null;
+
+    @property(Vec3)
+    positionShowDiceCup: Vec3 = null;
+
+    @property(Vec3)
+    scaleDiceCupSettlement: Vec3 = null;
+
+    @property(Vec3)
+    scaleDiceCupDefault: Vec3 = null;
 
     @property({ type: Node })
-    flipCoinNode: Node = null;
+    betItemsNode: Node = null;
 
-    @property({ type: Node })
-    highlightResultNode: Node = null;
+    public resultComp: SevenUpDownResult = null;
 
-    private winningResult: CoinTossWinningResult = null;
-    private flipCoin: FlipCoin = null;
-    private highlightResult: HighlightResult = null;
+    betItemsComp: SevenUpDownBetItems = null;
+
+    disabledGame: boolean = null;
 
     override namespace = settings.name;
     override containerOptions = containerOptions;
     isLoading = true;
+    isFinishDiceAnim = false;
 
-    private readonly winningSounds = { home: "home", away: "away" };
-    private readonly winningMusic = { home: "home_music", away: "home_music" };
-    private readonly crowdSounds = "crowd-game";
-    private readonly pathAnimTossDefault = `animations/${HOME_AWAY_NAME}/toss/coin_toss`;
+    isPlayAnimSettlement = false;
+    private readonly SHOW_EXTRA_PAY_DURATION = 2.07;
+    private readonly SHOW_MULTIPLIER_DURATION = 3.66;
+    private readonly TOTAL_SHOW_ANIM_DURATION = 8;
 
+    multiplierTween: Tween<Node> | null = null;
     protected clientRoundId = -1;
-    protected resultSoundIds: ResultSoundInfo[] = [];
+
     enableFixHandleFinish = true;
 
-    private match: GameServiceMessage.MatchConfig;
-    private nextMatchSkeleton: sp.SkeletonData;
+    protected lastRound: gc.RoundHistories.RoundHistory = null;
+
+    protected roundId: number = null;
+
+    protected histories: gc.RoundHistories.RoundHistory[];
 
     onLoad() {
         super.onLoad();
         this.fetchComponents();
-        this.winningResult?.hideQuickly();
-        this.flipCoin?.init();
     }
 
     fetchComponents() {
-        this.winningResult = this.winningResultNode?.getComponent(CoinTossWinningResult);
-        this.flipCoin = this.flipCoinNode?.getComponent(FlipCoin);
-        this.highlightResult = this.highlightResultNode?.getComponent(HighlightResult);
+        this.resultComp = this.resultNode?.getComponent(SevenUpDownResult);
+        this.betItemsComp = this.betItemsNode.getComponent(SevenUpDownBetItems);
+    }
+
+    @render(DisabledGame.DisabledGameStore, (store) => store.disabled)
+    storeDisabled(disabled: boolean) {
+        this.disabledGame = disabled;
     }
 
     @render(Rounds.RoundStore, (store) => store.clientRoundId)
@@ -88,38 +103,113 @@ export default class Game extends GameComponent {
     @render(Rounds.RoundTimeStore, (store) => store.isInRoundTime)
     renderInRoundTime(isInRoundTime: boolean) {
         if (isInRoundTime && !this.isLoading) {
-            this.winningResult.hideQuickly();
-            this.updateCurrentMatch(this.match);
+            this.resultComp?.setResultTextVisibility(false);
         }
     }
 
-    async finishShowResult(result: gc.GameServiceMessage.TResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
-        this.highlightResult.show(result);
-        this.playWinningSound();
-        super.finishShowResult(result, settlementResult);
-    }
-
-    async showResult(result: gc.GameServiceMessage.TResult, hasAnimation: boolean) {
+    async showResult(result: ISevenUpDownResult, hasAnimation: boolean, settlementResult: gc.GameServiceMessage.TSettlementResult) {
         if (result) {
-            this.flipCoin.setStatusNode(false);
-            this.loadSoundResultBeforeRead(result);
-            this.winningResult.setResult(result);
+            this.resultComp?.setResultTextVisibility(false);
             if (hasAnimation) {
-                await this.winningResult.show();
+                await this.handleAnimResult(result, this.roundId, settlementResult);
             }
         }
     }
 
-    @render(Rounds.RoundTimeStore, (store) => store.isStartPlacingBet)
-    startPlacingBet(isStartPlacingBet: boolean) {
-        this.playStoppableSFX(this.crowdSounds);
+    async finishShowResult(result: ISevenUpDownResult, settlementResult: gc.GameServiceMessage.TSettlementResult) {
+        super.finishShowResult(result, settlementResult);
     }
 
-    async playWinningSound() {
-        for (const resultSoundInfo of this.resultSoundIds) {
-            this.playStoppableSFX(resultSoundInfo.soundId);
-            await FunctionUtils.delay(resultSoundInfo.duration * 1000);
-        }
+    async handleAnimResult(result: ISevenUpDownResult, roundId: number, settlementResult: any): Promise<void> {
+        this.isPlayAnimSettlement = true;
+        const { multiplier } = result;
+        const extraPayMessageDelayTime = multiplier ? this.SHOW_EXTRA_PAY_DURATION : 0;
+        const multiplierDelayTime = multiplier ? this.SHOW_MULTIPLIER_DURATION : 0;
+        this.multiplierTween?.stop();
+        this.multiplierComp?.resetMultiplier(false);
+        this.betItemsComp.clearHighlightAnim();
+        const tweenSequence = tween(this.node)
+            .call(() => {
+                if (multiplier) {
+                    this.spineExtraPaid.node.active = true;
+                    AnimationUtils.playSpine(this.spineExtraPaid, "show");
+                }
+            })
+            .delay(extraPayMessageDelayTime)
+            .call(() => {
+                if (multiplier) {
+                    this.playStoppableSFX("multiplier");
+                    this.multiplierComp.renderMultiplier(multiplier, true);
+                }
+            })
+            .delay(multiplierDelayTime);
+
+        await this.runTweenAsPromise(tweenSequence);
+        await this.showResultAnim(result, roundId, settlementResult);
+    }
+
+    async showResultAnim(result: gc.GameServiceMessage.TResult, roundId: number, settlementResult): Promise<void> {
+        const prevResult = this.lastRound?.result;
+        this.resultComp.setResultTextVisibility(false);
+        this.betItemsComp.clearHighlightAnim();
+        await new Promise<void>((resolve) => {
+            tween(this.resultNode)
+                .to(0.15, { position: new Vec3(0, this.positionDiceCupDefault.y, this.positionDiceCupDefault.z) })
+                .to(0.15, {
+                    position: new Vec3(this.positionShowDiceCup.x, this.positionShowDiceCup.y - 20, this.positionShowDiceCup.z),
+                    scale: new Vec3(0.9, 0.88, 1),
+                })
+                .to(0.15, {
+                    position: this.positionShowDiceCup,
+                    scale: this.scaleDiceCupSettlement,
+                })
+                .delay(0.15)
+                .call(() => {
+                    this.playStoppableSFX("dice_shake");
+                    this.resultComp?.showResultAnim(prevResult, result, roundId); // Show the result animation
+                })
+                .delay(this.resultComp?.RESULT_DURATION || 0)
+                .call(() => {
+                    this.playWinningSound(settlementResult);
+                })
+                .delay(1.6)
+                .to(0.4, {
+                    position: this.positionDiceCupDefault,
+                    scale: this.scaleDiceCupDefault,
+                })
+                .call(resolve)
+                .start();
+            this.resultComp.playHighLight();
+        });
+
+        this.isFinishDiceAnim = true;
+    }
+
+    private runTweenAsPromise(tweenObj: Tween<any>): Promise<void> {
+        return new Promise((resolve) => {
+            tweenObj.call(resolve).start();
+        });
+    }
+
+    @render(gc.Settlements.SettlementStore, (store) => store.roundId)
+    public updateLatestRoundId(roundId: number) {
+        this.roundId = roundId;
+    }
+
+    @render(gc.RoundHistories.RoundHistoryStore, (store) => store.getLastRound())
+    public setLastRound(round: gc.RoundHistories.RoundHistory) {
+        this.lastRound = round;
+    }
+
+    @render(Rounds.RoundTimeStore, (store) => store.isStartPlacingBet)
+    startPlacingBet(isStartPlacingBet: boolean) {
+        //this.playStoppableSFX(this.crowdSounds);
+    }
+
+    playWinningSound(settlementResult: gc.GameServiceMessage.TSettlementResult) {
+        const winChoice = findWinningChoice(settlementResult);
+        const soundId = this.getAudioKeyForLanguage(winChoice);
+        this.playStoppableSFX(soundId);
     }
 
     @handle(gc.Audios.AudioHandler, (handle, id: string) => handle.stopStoppableSFX(id))
@@ -138,56 +228,18 @@ export default class Game extends GameComponent {
             this.stopStoppableSFX("");
         }
     }
-
-    async loadSoundResultBeforeRead(data: gc.GameServiceMessage.TResult) {
-        let isCancelLoadSounds = false;
-        const maxWaitTime = 5000;
-        const result = Object.keys(data).find((key) => data[key]);
-
-        const timeoutCancelWinningSound = setTimeout(() => {
-            isCancelLoadSounds = true;
-        }, maxWaitTime);
-
-        if (isCancelLoadSounds) {
-            return;
-        }
-
-        const winOptionName = this.match ? this.match[result]?.toLowerCase() : this.winningSounds[result];
-
-        const soundId = this.getAudioKeyForLanguage(winOptionName);
-        if (soundId) {
-            const duration = (await AudioUtils.getDurationClip(soundId)) - 0.4; // reduce duration of winning sound
-
-            this.resultSoundIds.push({ soundId, duration });
-        }
-        const musicDuration = await AudioUtils.getDurationClip(this.winningMusic[result]);
-        this.resultSoundIds.push({ soundId: this.winningMusic[result], duration: musicDuration });
-        timeoutCancelWinningSound && clearTimeout(timeoutCancelWinningSound);
-    }
-
     getAudioKeyForLanguage(name: string): string {
-        return `${name}_${Translator.getLanguageId() || "en"}`;
+        return `${name}_win_${Translator.getLanguageId() || "en"}`;
     }
 
     async handleStartRound(isStartRound: boolean) {
         if (isStartRound) {
             super.handleStartRound(isStartRound);
-            this.winningResult?.hideQuickly();
-            if (this.nextMatchSkeleton) {
-                this.flipCoin?.setSkeletonData(this.nextMatchSkeleton);
-                this.flipCoin?.playAnim();
-                this.winningResult?.setSkeletonData(this.nextMatchSkeleton);
-            }
-
-            this.highlightResult?.hide();
-            this.resultSoundIds = [];
-        }
-    }
-
-    @handle(MatchConfigHandler, (handle, match: GameServiceMessage.MatchConfig) => handle.handleCurrentMatch(match))
-    updateCurrentMatch(match: GameServiceMessage.MatchConfig) {
-        if (match?.home && match?.away) {
-            return match;
+            this.resultComp?.setResultTextVisibility(false);
+            this.multiplierTween?.stop();
+            this.spineExtraPaid.node.active = false;
+            this.isFinishDiceAnim = this.isPlayAnimSettlement = false;
+            this.resetMultiplierAndResultText(true);
         }
     }
 
@@ -196,69 +248,53 @@ export default class Game extends GameComponent {
         this.isLoading = isLoading;
     }
 
-    @render(MatchConfigStore, (store) => store.match, { fireImmediately: true })
-    updateMatch(match: GameServiceMessage.MatchConfig) {
-        if (match.home && match.away) {
-            this.match = match;
-            this.loadMatchSkeleton(this.match);
-        }
-    }
-
     @render(RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
     async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
-        if (!firstJoinGameHistory) {
-            return;
-        }
-
+        if (!firstJoinGameHistory) return null;
+        this.resultComp?.showResultNoAnim(this.histories[1]?.result, this.histories[1]?.roundId);
         const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
-        if (lastRound && animationHighlight && roundTime > 0) {
-            const { result } = lastRound;
-            this.flipCoin?.setStatusNode(false);
-            this.highlightResult?.show(result);
-        }
-    }
+        if (!lastRound || roundTime < 0) return null;
 
-    async loadMatchSkeleton(match: GameServiceMessage.MatchConfig) {
-        if (match?.home && match?.away) {
-            const resourcePath = `${match?.home.toUpperCase()}-${match?.away.toUpperCase()}`;
-            await this.loadResourcesAnim(resourcePath);
-        }
-    }
-
-    async loadResourcesAnim(resourcePath: string) {
-        const customPath = `animations/${resourcePath}/toss/coin_toss`;
-
-        try {
-            const skeletonData = await this.loadSkeletonData(customPath);
-            skeletonData && this.updateSkeletonData(skeletonData);
-        } catch (error) {
-            log("Not found skeleton data into path: ", resourcePath, error.message);
-            const skeletonData = await this.loadSkeletonData(this.pathAnimTossDefault);
-            skeletonData && this.updateSkeletonData(skeletonData);
-        }
-    }
-
-    private async loadSkeletonData(path: string): Promise<sp.SkeletonData | null> {
-        try {
-            const skeletonData = (await bundleManager?.loadAssetsFromBundle("resources", path, sp.SkeletonData, null)) as sp.SkeletonData;
-
-            return (
-                skeletonData ?? (await bundleManager?.loadAssetsFromBundle("resources", this.pathAnimTossDefault, sp.SkeletonData, null))
-            );
-        } catch (error) {
-            log("Failed to load skeleton data from path: ", path, error.message);
+        const { result: rawResult, roundId, settlementResult } = lastRound;
+        const result = this.convertToSevenUpDownResult(rawResult);
+        if (this.disabledGame) {
+            this.resultComp?.showResultNoAnim(result, roundId);
+            this.resultComp?.showResultText(result);
             return null;
         }
+        // Show static result and multiplier if animation highlight is enabled
+        if (animationHighlight && !this.isPlayAnimSettlement) {
+            this.resultComp?.showResultText(result);
+            this.multiplierComp?.renderMultiplier(result?.multiplier, false);
+            this.betItemsComp.highlightBetItems(settlementResult);
+        }
+        // Handle animations or static display
+        if (animationHighlight && roundTime > settings.durations.wholeRound - this.TOTAL_SHOW_ANIM_DURATION && !this.isPlayAnimSettlement) {
+            await this.showResultAnim(result, roundId, result);
+            this.betItemsComp.highlightBetItems(settlementResult);
+        } else {
+            this.resultComp?.showResultNoAnim(result, roundId);
+        }
     }
 
-    private updateSkeletonData(skeletonData: sp.SkeletonData) {
-        if (!this.nextMatchSkeleton) {
-            this.winningResult.setSkeletonData(skeletonData);
-            this.flipCoin.setSkeletonData(skeletonData);
-        }
+    private convertToSevenUpDownResult(rawResult: gc.GameServiceMessage.TResult): ISevenUpDownResult {
+        return {
+            dice1: rawResult["dice1"],
+            dice2: rawResult["dice2"],
+            multiplier: rawResult["multiplier"] ?? null,
+        } as ISevenUpDownResult;
+    }
 
-        if (skeletonData) {
-            this.nextMatchSkeleton = skeletonData;
+    @render(gc.RoundHistories.RoundHistoryStore, (store) => store.histories)
+    updateHistories(dataLogs: any[]) {
+        this.histories = dataLogs;
+    }
+
+    resetMultiplierAndResultText(animated: boolean) {
+        if (!this.multiplierComp || !this.resultComp) {
+            return;
         }
+        this.multiplierComp.resetMultiplier(animated);
+        this.resultComp.setResultTextVisibility(false);
     }
 }
