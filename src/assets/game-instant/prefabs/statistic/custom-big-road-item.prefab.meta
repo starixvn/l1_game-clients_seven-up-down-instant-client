@@ -1,1 +1,13 @@
-{"ver":"1.1.45","importer":"prefab","imported":true,"uuid":"70cdfebc-ac4a-4452-a0c3-31ece291486b","files":[".json"],"subMetas":{},"userData":{"syncNodeName":"custom-big-road-item"}}
+{
+  "ver": "1.1.50",
+  "importer": "prefab",
+  "imported": true,
+  "uuid": "70cdfebc-ac4a-4452-a0c3-31ece291486b",
+  "files": [
+    ".json"
+  ],
+  "subMetas": {},
+  "userData": {
+    "syncNodeName": "custom-big-road-item"
+  }
+}
