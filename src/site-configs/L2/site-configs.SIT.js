@@ -12,5 +12,5 @@ window.envConfig = {
     defaultLanguage: "en",
     backgroundNoTranslate: true,
     boostedOddsDelayTimeByMinutes: 15,
-    storagePrefixKey: "si",
+    storagePrefixKey: "si_7up7down",
 };

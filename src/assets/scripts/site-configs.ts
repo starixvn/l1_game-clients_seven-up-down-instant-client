@@ -26,7 +26,7 @@ const defaultConfig: gc.Configs.SiteConfigs = {
     mainObserverNamespace: "SevenUpDown",
     tolgeeUrl: "",
     boostedOddsDelayTimeByMinutes: 2,
-    storagePrefixKey: "si",
+    storagePrefixKey: "si_7up7down",
     backgroundNoTranslate: true,
 };
 

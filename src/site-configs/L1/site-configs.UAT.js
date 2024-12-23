@@ -11,5 +11,5 @@ window.envConfig = {
     SGConnectSubDomain: "l1uatconnectsite",
     backgroundNoTranslate: true,
     boostedOddsDelayTimeByMinutes: 2,
-    storagePrefixKey: "si",
+    storagePrefixKey: "si_7up7down",
 };
