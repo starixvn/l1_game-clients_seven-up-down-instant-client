@@ -12,4 +12,5 @@ window.envConfig = {
     backgroundNoTranslate: true,
     boostedOddsDelayTimeByMinutes: 15,
     storagePrefixKey: "si_7up7down",
+    clientSubDomain: "l1uatclient",
 };
