@@ -1,4 +1,3 @@
-
 .splash-container .splash_game_name_vi {
     background-image: url("./game_name_vi.png?v=1");
 }
@@ -27,13 +26,18 @@
     background-image: url("./landscape_game_background.png?v=4") !important;
     transform-origin: center;
     transform: scale(1, 0.9);
+    background-size: auto;
 
 }
- 
+
 @media only screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
+    #splash.instant-game {
+        transform: rotate(0deg);
+    }
     .splash-container .bg_no_translate {
         background-image: url("./portrait_game_background.png?v=4") !important;
         left: 0px !important;
         top: -1vh !important;
+        background-size: auto;
     }
 }

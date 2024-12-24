@@ -93,12 +93,15 @@ export default class SevenUpDownMultiplierChoice extends Component {
             this.resetMultiplierChoice();
             return;
         }
+        let uiOpacity = this.nodeMultiplier.getComponent(UIOpacity);
+        if (!uiOpacity) {
+            uiOpacity = this.nodeMultiplier.addComponent(UIOpacity);
+        }
         const hideDurationTime = 0.4;
-        const t = tween;
-        t(this.nodeMultiplier)
+        tween(this.nodeMultiplier)
             .parallel(
-                t().to(hideDurationTime, { opacity: 0 }, { easing: "sineOut" }),
-                t().call(() => {
+                tween(uiOpacity).to(hideDurationTime, { opacity: 0 }, { easing: "sineOut" }), // Fade out
+                tween().call(() => {
                     const lastNode = this.getFinalMultiplier();
                     if (lastNode) {
                         tween(lastNode)
@@ -110,7 +113,7 @@ export default class SevenUpDownMultiplierChoice extends Component {
                 })
             )
             .call(() => {
-                this.resetMultiplierChoice();
+                this.resetMultiplierChoice(); // Reset after animation completes
             })
             .start();
         AnimationUtils.playSpine(this.spineMultiplier, "hide");

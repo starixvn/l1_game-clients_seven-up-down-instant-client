@@ -33,7 +33,12 @@
         "asyncFunctions": true
       },
       "md5Cache": false,
-      "bundleConfigs": []
+      "bundleConfigs": [],
+      "overwriteProjectSettings": {
+        "macroConfig": {
+          "cleanupImageCache": "off"
+        }
+      }
     },
     "options": {
       "web-mobile": {
@@ -48,9 +53,10 @@
         "orientation": "auto",
         "embedWebDebugger": false,
         "__version__": "1.0.1",
-        "cullEngineAsmJsModule": false
+        "cullEngineAsmJsModule": false,
+        "useWebGPU": false
       }
     },
-    "__version__": "1.3.6"
+    "__version__": "1.3.8"
   }
 }

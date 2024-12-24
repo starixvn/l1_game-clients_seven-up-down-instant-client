@@ -2089,7 +2089,16 @@
     "_isUnderline": false,
     "_underlineHeight": 2,
     "_cacheMode": 0,
-    "_id": "e7eKfOak9GIp0m5grXEz6E"
+    "_id": "e7eKfOak9GIp0m5grXEz6E",
+    "_enableOutline": true,
+    "_outlineWidth": 2,
+    "_outlineColor": {
+      "__type__": "cc.Color",
+      "r": 72,
+      "g": 36,
+      "b": 0,
+      "a": 255
+    }
   },
   {
     "__type__": "ee23d4ZpARIJ6QYC7KBweKN",
@@ -2216,14 +2225,6 @@
     },
     "_enabled": true,
     "__prefab": null,
-    "_color": {
-      "__type__": "cc.Color",
-      "r": 72,
-      "g": 36,
-      "b": 0,
-      "a": 255
-    },
-    "_width": 2,
     "_id": "9b2jHOGq5JB4Yt3Ue24rTb"
   },
   {

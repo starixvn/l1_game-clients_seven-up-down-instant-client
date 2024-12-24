@@ -69,7 +69,6 @@ export default class Game extends GameComponent {
     private readonly SHOW_MULTIPLIER_DURATION = 3.66;
     private readonly TOTAL_SHOW_ANIM_DURATION = 8;
 
-    multiplierTween: Tween<Node> | null = null;
     protected clientRoundId = -1;
 
     enableFixHandleFinish = true;
@@ -125,7 +124,6 @@ export default class Game extends GameComponent {
         const { multiplier } = result;
         const extraPayMessageDelayTime = multiplier ? this.SHOW_EXTRA_PAY_DURATION : 0;
         const multiplierDelayTime = multiplier ? this.SHOW_MULTIPLIER_DURATION : 0;
-        this.multiplierTween?.stop();
         this.multiplierComp?.resetMultiplier(false);
         this.betItemsComp.clearHighlightAnim();
         const tweenSequence = tween(this.node)
@@ -177,7 +175,7 @@ export default class Game extends GameComponent {
                     position: this.positionDiceCupDefault,
                     scale: this.scaleDiceCupDefault,
                 })
-                .call(resolve)
+                .call(()=> resolve())
                 .start();
             this.resultComp.playHighLight();
         });
@@ -236,7 +234,6 @@ export default class Game extends GameComponent {
         if (isStartRound) {
             super.handleStartRound(isStartRound);
             this.resultComp?.setResultTextVisibility(false);
-            this.multiplierTween?.stop();
             this.spineExtraPaid.node.active = false;
             this.isFinishDiceAnim = this.isPlayAnimSettlement = false;
             this.resetMultiplierAndResultText(true);
