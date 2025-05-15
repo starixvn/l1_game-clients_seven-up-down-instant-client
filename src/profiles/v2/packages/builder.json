@@ -8,11 +8,11 @@
       "1681353552761": {
         "type": "build",
         "id": "1681353552761",
-        "progress": 1,
-        "state": "success",
+        "progress": 0.17272727272727273,
+        "state": "processing",
         "stage": "build",
-        "message": "12-18-2024 16:40:06 build success in 2 min 8 s!",
-        "detailMessage": "Asset DB is resume!\r",
+        "message": "Build script in bundle start",
+        "detailMessage": "[build-script]Create cjs interop url for 'file:///D:/OldComputer/Git3/Clients/seven-up-down-instant-client/src/node_modules/@sg/game-client-base/dist/index.js'\r\r\r",
         "options": {
           "name": "cocos-3x",
           "platform": "web-mobile",
@@ -84,9 +84,12 @@
             "handleTemplateMd5Link": true
           },
           "wasmCompressionMode": false,
-          "buildMode": "normal"
+          "buildMode": "normal",
+          "engineModulesConfigKey": "migrationsConfig",
+          "mangleProperties": false,
+          "inlineEnum": true
         },
-        "time": "12-18-2024 16:37:57",
+        "time": "5-15-2025 12:20:42",
         "dirty": false
       }
     }
