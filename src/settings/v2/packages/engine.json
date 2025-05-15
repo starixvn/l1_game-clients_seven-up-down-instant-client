@@ -2,7 +2,7 @@
   "__version__": "1.0.12",
   "modules": {
     "graphics": {
-      "pipeline": "legacy-pipeline"
+      "pipeline": "custom-pipeline"
     },
     "configs": {
       "migrationsConfig": {
@@ -217,7 +217,7 @@
         }
       }
     },
-    "globalConfigKey": "migrationsConfig"
+    "globalConfigKey": "defaultConfig"
   },
   "macroConfig": {
     "ENABLE_TRANSPARENT_CANVAS": false,
@@ -225,6 +225,6 @@
     "ENABLE_WEBGL_ANTIALIAS": false,
     "ENABLE_WEBGL_HIGHP_STRUCT_VALUES": true,
     "BATCHER2D_MEM_INCREMENT": 144,
-    "CUSTOM_PIPELINE_NAME": "Custom"
+    "CUSTOM_PIPELINE_NAME": ""
   }
 }
