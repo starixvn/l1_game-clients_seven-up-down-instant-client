@@ -24,7 +24,7 @@ const defaultConfig: gc.Configs.SiteConfigs = {
         route: "sevenupdown",
     },
     tolgeeUrl: "",
-    boostedOddsDelayTimeByMinutes: 2,
+    boostedOddsDelayTimeByMinutes: 1,
     storagePrefixKey: "si_7up7down",
     backgroundNoTranslate: true,
 };
