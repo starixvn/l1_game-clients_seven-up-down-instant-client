@@ -76,6 +76,7 @@ export class SevenUpDownResult extends Component {
             const endPos = result[`dice${index + 1}`];
             const frame = this.diceSpriteFrames.find((spriteFrame) => spriteFrame.name === `end-${endPos}-${this.DICE_END_FRAME}`);
             if (frame) dice.setFrame(frame);
+            dice.node.angle = 0;
         });
     }
 
