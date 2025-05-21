@@ -2445,8 +2445,8 @@
       "__uuid__": "abb5f948-903b-439d-8153-83a70a36ffcc",
       "__expectedType__": "sp.SkeletonData"
     },
-    "defaultSkin": "default",
-    "defaultAnimation": "<None>",
+    "defaultSkin": "",
+    "defaultAnimation": "",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
     "_preCacheMode": 0,

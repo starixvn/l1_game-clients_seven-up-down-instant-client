@@ -1,6 +1,7 @@
 {
     "others": {
-        "resources": ["images/dices.webp"]
+        "resources": ["images/dices.webp", "animations/dice-animation", "animations/bg-multiplier", 
+        "animations/bet-option-7-landscape/betoption-7", "animations/bet-option-updown-landscape/betoption-updown"]
     },
     "localized": {
         "resources": {
