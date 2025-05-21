@@ -1,0 +1,10 @@
+{
+    "others": {
+        "resources": ["images/dices.webp"]
+    },
+    "localized": {
+        "resources": {
+            "1": ["text_start_in"]
+        }
+    }
+}
