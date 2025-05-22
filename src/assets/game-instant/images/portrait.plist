@@ -269,13 +269,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>portrait.png</string>
+            <string>portrait.webp</string>
             <key>size</key>
             <string>{1024,1024}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:b4aed04442d13be4314a2c3427bc3ea7:82d400054cf96a444429c5f61a90c2bb:3d42de828d42ee400c85d0b2805c6dee$</string>
             <key>textureFileName</key>
-            <string>portrait.png</string>
+            <string>portrait.webp</string>
         </dict>
     </dict>
 </plist>
