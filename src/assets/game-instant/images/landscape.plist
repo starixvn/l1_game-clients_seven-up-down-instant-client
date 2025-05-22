@@ -209,13 +209,13 @@
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
-            <string>landscape.png</string>
+            <string>landscape.webp</string>
             <key>size</key>
             <string>{1024,2048}</string>
             <key>smartupdate</key>
             <string>$TexturePacker:SmartUpdate:a33822cc469697d245748566b5f73abb:7d16adb25b8717fde9579f3535d4a186:de60c1e2b33876aa3ac5397972d2b266$</string>
             <key>textureFileName</key>
-            <string>landscape.png</string>
+            <string>landscape.webp</string>
         </dict>
     </dict>
 </plist>
