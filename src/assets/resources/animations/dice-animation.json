@@ -3,25 +3,23 @@
 "bones": [
 	{ "name": "root" },
 	{ "name": "move-leftright-dice-1", "parent": "root", "x": 3.83, "y": 2.96 },
-	{ "name": "move-updowndice-1", "parent": "move-leftright-dice-1", "length": 77.38, "rotation": -90.55, "x": 218.82, "y": 71.59 },
+	{ "name": "move-updowndice-1", "parent": "move-leftright-dice-1", "length": 77.38, "x": 0, "y": 0 },
 	{
 		"name": "dice-1",
 		"parent": "move-updowndice-1",
-		"rotation": 90.55,
-		"x": 76.28,
-		"y": -221.93,
+		"x": 0,
+		"y": 0,
 		"scaleX": 0.8,
 		"scaleY": 0.8
 	},
 	{ "name": "box-inside", "parent": "root" },
 	{ "name": "move-leftright-dice-2", "parent": "root", "y": 24.52 },
-	{ "name": "move-updown-dice-2", "parent": "move-leftright-dice-2", "length": 77.38, "rotation": -90.55, "x": 277.84, "y": 47.07 },
+	{ "name": "move-updown-dice-2", "parent": "move-leftright-dice-2", "length": 77.38, "x": 0, "y": 0 },
 	{
 		"name": "dice-2",
 		"parent": "move-updown-dice-2",
-		"rotation": 90.55,
-		"x": 74.25,
-		"y": -277.14,
+		"x": 0,
+		"y": 0,
 		"scaleX": 0.8,
 		"scaleY": 0.8
 	}
