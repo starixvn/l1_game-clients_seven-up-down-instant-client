@@ -199,7 +199,7 @@
     "_priority": 2,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 264.76335877862596,
+    "_orthoHeight": 227.7560975609756,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -4988,7 +4988,7 @@
     "_enabled": true,
     "__prefab": null,
     "bundleName": "resources",
-    "path": "prefabs/outter-containers",
+    "path": "prefabs/landscape/outter-containers-landscape",
     "_id": "f0uWOnZkFLjoYzY8sufnLB"
   },
   {

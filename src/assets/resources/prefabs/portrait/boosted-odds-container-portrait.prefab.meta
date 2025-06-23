@@ -2,12 +2,12 @@
   "ver": "1.1.50",
   "importer": "prefab",
   "imported": true,
-  "uuid": "4610ec99-9507-4155-8ed3-69ba0d52e1f4",
+  "uuid": "81c0a167-a9df-4cf5-a02a-a8be46ccbde5",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "outter-containers"
+    "syncNodeName": "boosted-odds-container-portrait"
   }
 }
