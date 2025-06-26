@@ -113,8 +113,8 @@
     "_prefab": null,
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 406,
-      "y": 205.00000000000003,
+      "x": 223,
+      "y": 332,
       "z": 0
     },
     "_lrot": {
@@ -199,7 +199,7 @@
     "_priority": 2,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 322.0723514211886,
+    "_orthoHeight": 332,
     "_near": 0,
     "_far": 2000,
     "_color": {
@@ -4373,8 +4373,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 410
+      "width": 446,
+      "height": 664
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4997,8 +4997,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 410
+      "width": 446,
+      "height": 664
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -5048,7 +5048,7 @@
     "_enabled": true,
     "__prefab": null,
     "bundleName": "resources",
-    "path": "prefabs/portrait/outter-containers/portrait",
+    "path": "prefabs/portrait/outter-containers-portrait",
     "_id": "41MecpVfJGQZ2QCyyMyHFY"
   },
   {
@@ -5252,8 +5252,8 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 812,
-      "height": 410
+      "width": 446,
+      "height": 664
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
