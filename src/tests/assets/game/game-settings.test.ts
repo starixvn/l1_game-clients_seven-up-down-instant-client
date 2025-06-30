@@ -1,7 +1,8 @@
 import { GameConfigs } from "@sg/game-client-base";
 import { LogStore } from "db://shared-components/game/scripts/stores/log-store";
 
-import { containerOptions, settings } from "../../../assets/game/scripts/game-settings";
+import { containerOptions } from "db://assets/game/scripts/containerOptions";
+import { settings } from "db://assets/game/scripts/game-settings";
 
 jest.mock("db://shared-components/shared/scripts/startup", () => ({
     getSharedContainer: jest.fn(() => ({ sharedContainer: true })),
@@ -11,16 +12,19 @@ describe("settings", () => {
     it("should have data as expected", () => {
         // Assert
         expect(settings).toStrictEqual({
-            id: 93,
-            name: "FootballCoinToss",
+            id: 103,
+            name: "SevenUpDown",
+            namespaces: ["7Up7Down"],
             durations: {
-                wholeRound: 29,
+                wholeRound: 33,
                 lockingBet: 3,
                 placingBet: 20,
-                generatingResult: 2,
-                startRound: 3,
+                generatingResult: 11,
+                startRound: 1,
             },
             numberOfRoundHistory: 100,
+            observerNamespace: "SevenUpDown",
+            isMiniGame: true,
         });
     });
 });

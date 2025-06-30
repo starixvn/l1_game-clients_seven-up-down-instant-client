@@ -6,7 +6,7 @@
   "license": "ISC",
   "uuid": "c276db36-9eca-406d-ab37-8c88b377139f",
   "creator": {
-    "version": "3.8.4",
+    "version": "3.8.6",
     "registry": {
       "remote": {}
     },
@@ -28,7 +28,7 @@
   "dependencies": {
     "@sg/cocos-integration-testing": "1.6.2",
     "file-saver": "^2.0.5",
-    "@sg/game-client-base": "1.57.3",
+    "@sg/game-client-base": "1.60.0",
     "inversify": "6.0.1",
     "lodash-es": "^4.17.21",
     "mobx": "6.9.0",

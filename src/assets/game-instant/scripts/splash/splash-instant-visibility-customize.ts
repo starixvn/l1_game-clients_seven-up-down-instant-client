@@ -1,5 +1,5 @@
 import { Prefab, _decorator } from "cc";
-import { bundleManager } from "../../../../extensions/shared-components/assets/shared/common-components/bundle-magager/bundle-manager";
+import { bundleManager } from "../../../../extensions/shared-components/assets/shared/common-components/bundle-manager/bundle-manager";
 import SplashInstantVisibility from "../../../../extensions/shared-components/assets/splash/scripts/components/splash-instant-visibility";
 const { ccclass, property } = _decorator;
 
