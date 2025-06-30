@@ -227,6 +227,7 @@ export default class Game extends GameComponent {
             this.stopStoppableSFX("");
         }
     }
+
     getAudioKeyForLanguage(name: string): string {
         return `${name}_win_${Translator.getLanguageId() || "en"}`;
     }
