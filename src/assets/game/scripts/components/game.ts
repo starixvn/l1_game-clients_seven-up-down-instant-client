@@ -1,17 +1,18 @@
 import gc from "@sg/game-client-base";
-import { Label, Node, _decorator, sp, Tween, tween, Vec3 } from "cc";
+import { _decorator, Label, Node, sp, Tween, tween, Vec3 } from "cc";
 import GameComponent from "db://shared-components/game/scripts/components/game-component";
 import { startGame } from "db://shared-components/shared/scripts/startup";
 import Observer from "observer";
 import { AnimationUtils } from "../../../../extensions/shared-components/assets/shared/utils";
-import { siteConfigs } from "../../../scripts/site-configs";
-import { containerOptions, settings } from "../game-settings";
-import "./../../../resources/i18n";
-import { SevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-result";
-import { ISevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-choices";
 import SevenUpDownMultiplier from "../../../game-instant/scripts/multiplier/seven-up-down-multiplier";
-import { findWinningChoice } from "../../../game-instant/scripts/seven-up-down-helper";
 import SevenUpDownBetItems from "../../../game-instant/scripts/seven-up-down-bet-items";
+import { ISevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-choices";
+import { findWinningChoice } from "../../../game-instant/scripts/seven-up-down-helper";
+import { SevenUpDownResult } from "../../../game-instant/scripts/seven-up-down-result";
+import { siteConfigs } from "../../../scripts/site-configs";
+import { containerOptions } from "../containerOptions";
+import { settings } from "../game-settings";
+import "./../../../resources/i18n";
 
 const { Rounds, Translator, RoundHistories, UserSettings, DisabledGame } = gc;
 
