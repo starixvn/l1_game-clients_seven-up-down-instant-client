@@ -157,7 +157,7 @@ export class SevenUpDownResult extends Component {
     }
 
     private getRandomNumber(max: number): number {
-        return Math.floor(Math.random() * max) + 1;
+        return Math.floor(Math.random() * max) + 1; //NOSONAR
     }
 
     private setResultDiceFrames(prevResult: gc.GameServiceMessage.TResult, result: gc.GameServiceMessage.TResult) {
