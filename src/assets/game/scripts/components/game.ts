@@ -176,7 +176,7 @@ export default class Game extends GameComponent {
                     position: this.positionDiceCupDefault,
                     scale: this.scaleDiceCupDefault,
                 })
-                .call(()=> resolve())
+                .call(() => resolve())
                 .start();
             this.resultComp.playHighLight();
         });
@@ -201,9 +201,7 @@ export default class Game extends GameComponent {
     }
 
     @render(Rounds.RoundTimeStore, (store) => store.isStartPlacingBet)
-    startPlacingBet(isStartPlacingBet: boolean) {
-        //this.playStoppableSFX(this.crowdSounds);
-    }
+    startPlacingBet(isStartPlacingBet: boolean) {}
 
     playWinningSound(settlementResult: gc.GameServiceMessage.TSettlementResult) {
         const winChoice = findWinningChoice(settlementResult);
@@ -249,17 +247,21 @@ export default class Game extends GameComponent {
 
     @render(RoundHistories.RoundHistoryStore, (store) => store.firstJoinGameHistory)
     async renderStaticResult(firstJoinGameHistory: gc.RoundHistories.IFirstJoinGameHistory) {
-        if (!firstJoinGameHistory) return null;
+        if (!firstJoinGameHistory) {
+            return;
+        }
         this.resultComp?.showResultNoAnim(this.histories[1]?.result, this.histories[1]?.roundId);
         const { animationHighlight, roundTime, roundHistory: lastRound } = firstJoinGameHistory;
-        if (!lastRound || roundTime < 0) return null;
+        if (!lastRound || roundTime < 0) {
+            return;
+        }
 
         const { result: rawResult, roundId, settlementResult } = lastRound;
         const result = this.convertToSevenUpDownResult(rawResult);
         if (this.disabledGame) {
             this.resultComp?.showResultNoAnim(result, roundId);
             this.resultComp?.showResultText(result);
-            return null;
+            return;
         }
         // Show static result and multiplier if animation highlight is enabled
         if (animationHighlight && !this.isPlayAnimSettlement) {

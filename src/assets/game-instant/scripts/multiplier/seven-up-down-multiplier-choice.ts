@@ -24,7 +24,7 @@ export default class SevenUpDownMultiplierChoice extends Component {
     public listMultiplierOrigin = [];
     public multiplierValue = 0;
     private multiplierTween: Tween<Node> = null;
-    private lastMultiplierTween: Tween<Node> = null;
+    private readonly lastMultiplierTween: Tween<Node> = null;
 
     onDisable() {
         this.multiplierTween?.stop();

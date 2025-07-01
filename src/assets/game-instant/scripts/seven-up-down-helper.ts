@@ -1,5 +1,5 @@
 import gc from "@sg/game-client-base";
-import { _decorator, sp } from "cc";
+import { sp } from "cc";
 import { BetChoice } from "./seven-up-down-choices";
 
 export const findWinningChoice = (settlementResult: any): string => {

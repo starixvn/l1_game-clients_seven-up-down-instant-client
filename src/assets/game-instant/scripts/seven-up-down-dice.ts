@@ -37,7 +37,9 @@ export class SevenUpDownDice extends Component {
     }
 
     runAnimation(resultDiceFrames: SpriteFrame[], duration: number) {
-        if (!this.diceSprite) return;
+        if (!this.diceSprite) {
+            return;
+        }
 
         let index = 0;
         const diceFramesNumber = resultDiceFrames.length;

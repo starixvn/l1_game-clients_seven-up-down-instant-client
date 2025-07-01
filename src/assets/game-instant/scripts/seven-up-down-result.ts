@@ -75,7 +75,9 @@ export class SevenUpDownResult extends Component {
         this.dicesComponent.forEach((dice, index) => {
             const endPos = result[`dice${index + 1}`];
             const frame = this.diceSpriteFrames.find((spriteFrame) => spriteFrame.name === `end-${endPos}-${this.DICE_END_FRAME}`);
-            if (frame) dice.setFrame(frame);
+            if (frame) {
+                dice.setFrame(frame);
+            }
             dice.node.angle = 0;
         });
     }
@@ -96,7 +98,9 @@ export class SevenUpDownResult extends Component {
     }
 
     setResultTextVisibility(isShow: boolean) {
-        if (!this.nodeResult) return;
+        if (!this.nodeResult) {
+            return;
+        }
         this.nodeResult.active = isShow;
 
         const uiOpacity = this.nodeResult.getComponent(UIOpacity) || this.nodeResult.addComponent(UIOpacity);

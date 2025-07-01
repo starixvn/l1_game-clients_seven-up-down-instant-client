@@ -28,7 +28,7 @@ export class CustomLedLightTooltip extends LedLightTooltip {
         const { settlementResult, result } = ledLightInfo;
         const rawWinChoice = findWinningChoice(settlementResult);
         const winChoice = rawWinChoice === "seven" ? "7" : rawWinChoice;
-        let choiceWin = gc.Translator.gameTranslate(`glossary_${winChoice}`).toUpperCase();
+        const choiceWin = gc.Translator.gameTranslate(`glossary_${winChoice}`).toUpperCase();
         const diceResult = `(${result["dice1"]},${result["dice2"]})`;
 
         this.result.string =`${choiceWin} ${diceResult}`;
