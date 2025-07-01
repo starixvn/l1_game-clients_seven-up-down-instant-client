@@ -199,7 +199,7 @@
     "_priority": 2,
     "_fov": 45,
     "_fovAxis": 0,
-    "_orthoHeight": 322.0723514211886,
+    "_orthoHeight": 258.5601703940362,
     "_near": 0,
     "_far": 1000,
     "_color": {
@@ -2445,7 +2445,7 @@
       "__uuid__": "abb5f948-903b-439d-8153-83a70a36ffcc",
       "__expectedType__": "sp.SkeletonData"
     },
-    "defaultSkin": "",
+    "defaultSkin": "default",
     "defaultAnimation": "",
     "_premultipliedAlpha": false,
     "_timeScale": 1,
