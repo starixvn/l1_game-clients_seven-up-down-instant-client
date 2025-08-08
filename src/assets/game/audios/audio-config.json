@@ -11,6 +11,9 @@
     "down_win_en": {
         "bundle": "resources"
     },
+    "down_win_es": {
+        "bundle": "resources"
+    },
     "down_win_id": {
         "bundle": "resources"
     },
@@ -30,6 +33,9 @@
         "bundle": "resources"
     },
     "seven_win_en": {
+        "bundle": "resources"
+    },
+    "seven_win_es": {
         "bundle": "resources"
     },
     "seven_win_vi": {
@@ -54,6 +60,9 @@
         "bundle": "resources"
     },
     "up_win_en": {
+        "bundle": "resources"
+    },
+    "up_win_es": {
         "bundle": "resources"
     },
     "up_win_vi": {

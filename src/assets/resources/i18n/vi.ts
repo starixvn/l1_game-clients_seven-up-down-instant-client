@@ -231,6 +231,7 @@ export const languages = {
         "glossary_7": "7",
         "glossary_down": "Dưới",
         "glossary_multiplier": "Hệ Số Nhân",
+        "glossary_seven": "7",
         "glossary_up": "Trên",
         "up_win": "TRÊN 7 THẮNG"
     },

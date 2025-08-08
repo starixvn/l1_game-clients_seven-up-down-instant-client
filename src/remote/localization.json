@@ -4,17 +4,19 @@
           "id": "7 NAIK 7 TURUN",
           "th": "7 ขึ้น 7 ลง",
           "vi": "TRÊN 7 DƯỚI 7",
-          "zh_cn": "7 上 7 下",
+          "zh_cn": "TRÊN 7 DƯỚI 7",
           "zh_tw": "7 上 7 下",
-          "ja": "7アップ7ダウン"
+          "ja": "7アップ7ダウン",
+          "es": "7 ARRIBA 7 ABAJO"
      },
      "gameNames": {
           "en": "7 Up 7 Down",
           "id": "7 Naik 7 Turun",
           "th": "7 ขึ้น 7 ลง",
           "vi": "Trên 7 Dưới 7",
-          "zh_cn": "7 上 7 下",
+          "zh_cn": "Trên 7 Dưới 7",
           "zh_tw": "7 上 7 下",
-          "ja": "7アップ7ダウン"
+          "ja": "7アップ7ダウン",
+          "es": "7 Arriba 7 Abajo"
      }
 }
